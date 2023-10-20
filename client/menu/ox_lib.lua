@@ -1,23 +1,27 @@
 Menu = function(title, options)
-    if not v.hidden then
-        if v.isServer then
-            menu[#menu + 1] = {
-                title = v.title,
-                description = v.description or nil,
-                icon = v.icon or false,
-                serverEvent = v.event or nil,
-                args = v.args or nil,
-                disabled = v.disabled or false,
-            }
-        else
-            menu[#menu + 1] = {
-                title = v.title,
-                description = v.description or nil,
-                icon = v.icon or false,
-                event = v.event or nil,
-                args = v.args or nil,
-                disabled = v.disabled or false,
-            }
+    local menu = {}
+
+    for k, v in pairs(options) do
+        if not v.hidden then
+            if v.isServer then
+                menu[#menu + 1] = {
+                    title = v.title,
+                    description = v.description or nil,
+                    icon = v.icon or false,
+                    serverEvent = v.event or nil,
+                    args = v.args or nil,
+                    disabled = v.disabled or false,
+                }
+            else
+                menu[#menu + 1] = {
+                    title = v.title,
+                    description = v.description or nil,
+                    icon = v.icon or false,
+                    event = v.event or nil,
+                    args = v.args or nil,
+                    disabled = v.disabled or false,
+                }
+            end
         end
     end
 
