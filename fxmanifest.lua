@@ -4,14 +4,10 @@ game 'gta5'
 author 'PEUREN DEVELOPMENT - peuren.tebex.io'
 lua54 'yes'
 
-shared_files {
-    'shared/*'
-}
 
-server_files {
-    'server/*'
-}
-
-client_files {
-    'server/*'
+client_script "client/main.lua"
+server_script "server/main.lua"
+shared_script "shared/**/*.lua"
+files {
+    'client/**/*.lua'
 }
