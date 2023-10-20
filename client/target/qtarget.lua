@@ -9,7 +9,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports["qb-target"]:AddTargetEntity(entities, {
+        exports.qtarget:AddTargetEntity(entities, {
             options = tOptions,
             distance = distance
         })
@@ -24,7 +24,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports["qb-target"]:AddTargetBone(bones, {
+        exports.qtarget:AddTargetBone(bones, {
             options = tOptions,
             distance = distance
         })
@@ -39,7 +39,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports['qb-target']:AddTargetModel(models, {
+        exports.qtarget:AddTargetModel(models, {
             options = tOptions,
             distance = distance
         })
@@ -54,7 +54,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports['qb-target']:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
+        exports.qtarget:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
             name = boxData.name,
             heading = boxData.heading,
             debugPoly = Config.Debug,
@@ -66,7 +66,7 @@ Target = {
         })
     end,
     RemoveZone = function(id)
-        exports['qb-target']:RemoveZone(id)
+        exports.qtarget:RemoveZone(id)
     end
 }
 

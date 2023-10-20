@@ -19,6 +19,8 @@ end
 Core = {}
 Core.Framework = LoadModule("framework", Config.Framework)
 Core.Target = LoadModule("target", Config.Target)
+Core.ProgessBar = LoadModule("progessbar", Config.ProgessBar)
+Core.Menu = LoadModule("menu", Config.Menu)
 Core.GetItemLabel = GetItemLabel
 
 exports("Core", function() return Core end)
