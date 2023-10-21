@@ -5,6 +5,8 @@ Config.Language = 'en' -- Language file name, this means, that it will only load
                         -- if this is an invalid locale name on a resource it will default to english
 
 Config.Framework = "ESX" -- ESX/QB - The framework your server is based on
+Config.FrameworkResource = "es_extended" -- Framework resource name
+
 Config.SQLConnector = "oxmysql" -- oxmysql/mysql-async/ghmattimysql - The SQL connector resource that you're using.
 
 Config.Inventory = "" -- ox_inventory - Leave empty if you use the default framework inventory.

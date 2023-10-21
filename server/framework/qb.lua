@@ -1,8 +1,8 @@
-QBCore = exports['qb-core']:GetCoreObject()
+QBCore = exports[Config.FrameworkResource]:GetCoreObject()
 
 Framework = {
-    RegisterCallback = function(name, cb)
-        QBCore.Functions.CreateCallback(name, cb)
+    RegisterCallback = function(name, cb, ...)
+        QBCore.Functions.CreateCallback(name, cb, ...)
     end
 }
 
