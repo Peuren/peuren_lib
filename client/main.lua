@@ -22,5 +22,8 @@ Core.Target = LoadModule("target", Config.Target)
 Core.ProgessBar = LoadModule("progressbar", Config.ProgessBar)
 Core.Menu = LoadModule("menu", Config.Menu)
 Core.GetItemLabel = GetItemLabel
+Core.LoadLocales = loadLocales
+Core.GetLocales = getLocales
+Core.Locale = locale
 
 exports("Core", function() return Core end)

@@ -1,6 +1,8 @@
 Config = {}
 
 Config.Debug = false -- Adds additional prints and enables all other resource debug options | true or false
+Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
+                        -- if this is an invalid locale name on a resource it will default to english
 
 Config.Framework = "ESX" -- ESX/QB - The framework your server is based on
 Config.SQLConnector = "oxmysql" -- oxmysql/mysql-async/ghmattimysql - The SQL connector resource that you're using.

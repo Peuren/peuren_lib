@@ -60,5 +60,8 @@ Core.Framework = LoadModule("framework", Config.Framework)
 Core.Database = LoadModule("database", Config.SQLConnector)
 Core.Version = VersionCheck
 Core.GetItemLabel = GetItemLabel
+Core.LoadLocales = loadLocales
+Core.GetLocales = getLocales
+Core.Locale = locale
 
 exports("Core", function() return Core end)
