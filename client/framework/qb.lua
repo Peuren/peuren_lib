@@ -12,7 +12,7 @@ Framework = {
         TriggerAsync = function(name, cb, ...)
             QBCore.Functions.TriggerCallback(name, cb, ...)
         end
-    }
+    },
 }
 
 return Framework
