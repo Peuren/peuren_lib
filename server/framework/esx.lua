@@ -76,7 +76,7 @@ Framework = {
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end
             return xPlayer.getJob().grade
-        end
+        end,
         GetGradeLabel = function(player)
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end

@@ -58,8 +58,8 @@ VersionCheck('Peuren/peuren_lib')
 Core = {}
 Core.Framework = LoadModule("framework", Config.Framework)
 Core.Database = LoadModule("database", Config.SQLConnector)
+Core.Inventory = LoadModule("inventory", Config.Inventory)
 Core.Version = VersionCheck
-Core.GetItemLabel = GetItemLabel
 Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Locale = locale
