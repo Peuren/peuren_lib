@@ -65,7 +65,7 @@ Framework = {
             local Player = QBCore.Functions.GetPlayer(player)
             if not Player then return end
             return Player.PlayerData.job.grade.level
-        end
+        end,
         GetGradeLabel = function(player)
             local Player = QBCore.Functions.GetPlayer(player)
             if not Player then return end
