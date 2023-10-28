@@ -1,5 +1,7 @@
 function Notify(title, desc, type)
-    ESX.ShowNotification(title..": "..desc, type, 5000)
+    local text = title
+    if desc then text = title..": "..desc end
+    ESX.ShowNotification(text, type, 5000)
 end
 
 return Notify

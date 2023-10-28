@@ -27,4 +27,8 @@ Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Locale = locale
 
+RegisterNetEvent("peuren_lib:notify", function(title, desc, type)
+    Core.Notify(title, desc, type)
+end)
+
 exports("Core", function() return Core end)
