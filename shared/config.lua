@@ -21,3 +21,6 @@ Config.MenuResource = 'qb-menu'
 
 Config.Input = 'qb-input' -- ox_lib / qb-input / nh-keyboard - The input system that you're using
 Config.InputResource = 'qb-input' -- The input system folder name that you're using
+
+Config.Notifications = "qb" -- ox_lib / qb / esx / okok / mythic - The notification system that your're using
+Config.NotificationsResource = "qb" -- The notification system folder name that you're using

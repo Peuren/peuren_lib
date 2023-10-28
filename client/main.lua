@@ -22,6 +22,7 @@ Core.Target = LoadModule("target", Config.Target)
 Core.ProgessBar = LoadModule("progressbar", Config.ProgessBar)
 Core.Menu = LoadModule("menu", Config.Menu)
 Core.Input = LoadModule("input", Config.Input)
+Core.Notify = LoadModule("notifications", Config.Notifications)
 Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Locale = locale
