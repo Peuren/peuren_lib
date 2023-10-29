@@ -1,4 +1,4 @@
-Input = function(title, options)
+Input = function(header, options)
     local input = {}
 
     for _, v in pairs(options) do
@@ -12,10 +12,10 @@ Input = function(title, options)
         }
     end
 
-    return exports[Confif.InputResource]:ShowInput({
+    return exports[Config.InputResource]:ShowInput({
         header = header,
-        submitText = locale('input_confirm'),
-        inputs = fields,
+        submitText = Core.Locale('input_confirm'),
+        inputs = input,
     })
 end 
 

@@ -23,16 +23,16 @@ Framework = {
     end,
     Money = {
         Give = function(player, amount, account)
-            if account ~= "cash" or account ~= "bank" then
+            if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
 
             local Player = QBCore.Functions.GetPlayer(player)
             if not Player then return end
-            return Player.Functions.AddMoney(amount, account)
+            return Player.Functions.AddMoney(account, amount)
         end,
         Get = function(player, account)
-            if account ~= "cash" or account ~= "bank" then
+            if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
 
@@ -41,13 +41,13 @@ Framework = {
             return Player.Functions.GetMoney(account)
         end,
         Remove = function(player, amount, account)
-            if account ~= "cash" or account ~= "bank" then
+            if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
 
             local Player = QBCore.Functions.GetPlayer(player)
             if not Player then return end
-            return Player.Functions.RemoveMoney(amount, account)
+            return Player.Functions.RemoveMoney(account, amount)
         end,
     },
     Job = {
@@ -71,7 +71,11 @@ Framework = {
             if not Player then return end
             return Player.PlayerData.job.grade.name
         end
-    }
+    },
+    GetItemLabel = function(item)
+        if not QBCore.Shared.Items[item] then return "NO_LABEL" end
+        return QBCore.Shared.Items[item].label
+    end
 }
 
 return Framework
