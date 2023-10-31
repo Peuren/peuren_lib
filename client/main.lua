@@ -19,7 +19,7 @@ end
 Core = {}
 Core.Framework = LoadModule("framework", Config.Framework)
 Core.Target = LoadModule("target", Config.Target)
-Core.ProgessBar = LoadModule("progressbar", Config.ProgessBar)
+Core.ProgressBar = LoadModule("progressbar", Config.ProgessBar)
 Core.Menu = LoadModule("menu", Config.Menu)
 Core.Input = LoadModule("input", Config.Input)
 Core.Notify = LoadModule("notifications", Config.Notifications)
