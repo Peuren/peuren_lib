@@ -25,7 +25,7 @@ Framework = {
     end,
     Money = {
         Give = function(player, amount, account)
-            if account ~= "cash" or account ~= "bank" then
+            if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
 
@@ -36,7 +36,7 @@ Framework = {
             return xPlayer.addAccountMoney(account, money)
         end,
         Get = function(player, account)
-            if account ~= "cash" or account ~= "bank" then
+            if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
             
@@ -47,7 +47,7 @@ Framework = {
             return xPlayer.getAccount(account).balance
         end,
         Remove = function(player, amount, account)
-            if account ~= "cash" or account ~= "bank" then
+            if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
 
@@ -82,7 +82,11 @@ Framework = {
             if not xPlayer then return end
             return xPlayer.getJob().grade_label
         end
-    }
+    },
+    GetItemLabel = function(item)
+        if not QBCore.Shared.Items[item] then return "NO_LABEL" end
+        return QBCore.Shared.Items[item].label
+    end
 }
 
 return Framework
