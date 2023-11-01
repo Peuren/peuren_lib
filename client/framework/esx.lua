@@ -19,4 +19,8 @@ Framework = {
     end
 }
 
+AddEventHandler('esx:onPlayerSpawn', function()
+    TriggerEvent('peuren_lib:PlayerLoaded')
+end)
+
 return Framework

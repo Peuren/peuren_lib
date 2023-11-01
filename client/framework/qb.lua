@@ -19,4 +19,8 @@ Framework = {
     end
 }
 
+AddEventHandler('QBCore:Client:OnPlayerLoade', function()
+    TriggerEvent('peuren_lib:PlayerLoaded')
+end)
+
 return Framework
