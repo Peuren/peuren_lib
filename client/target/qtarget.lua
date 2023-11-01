@@ -55,6 +55,7 @@ Target = {
             }
         end
         exports.qtarget:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
+            resource = GetInvokingResource(),
             name = boxData.name,
             heading = boxData.heading,
             debugPoly = Config.Debug,
@@ -67,6 +68,9 @@ Target = {
     end,
     RemoveZone = function(id)
         exports.qtarget:RemoveZone(id)
+    end,
+    RemoveEntityZone = function(entities, names)
+        exports.qtarget:RemoveTargetEntity(entities, names)
     end
 }
 
