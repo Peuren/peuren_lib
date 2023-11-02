@@ -26,3 +26,5 @@ Config.Notifications = "ox_lib" -- ox_lib / qb / esx / okok / mythic - The notif
 Config.NotificationsResource = "qb" -- The notification system folder name that you're using
 
 Config.WeatherSync = 'qb-weathersync'-- qb-weathersync / cd_easytime - The weathersync system thet you're using
+
+Config.Dispatch = 'default' -- cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
