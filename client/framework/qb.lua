@@ -19,7 +19,7 @@ Framework = {
     end
 }
 
-AddEventHandler('QBCore:Client:OnPlayerLoade', function()
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
 end)
 
