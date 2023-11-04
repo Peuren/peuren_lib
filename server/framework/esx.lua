@@ -12,9 +12,10 @@ Framework = {
     GetCharName = function(player)
         local xPlayer = ESX.GetPlayerFromId(player)
         if not xPlayer then return end
+        local firstname, lastname = string.match(xPlayer.getName(), "([^%s]+) ([^%s]+)")
         return {
-            first = string.split(xPlayer.getName(), " ")[1],
-            last = string.split(xPlayer.getName(), " ")[2],
+            first = firstname,
+            last = lastname,
             full = xPlayer.getName()
         }
     end,
@@ -58,9 +59,9 @@ Framework = {
 
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end
-            if xPlayer.getAccount(account).balance < amount then return false end
+            if xPlayer.getAccount(account).money < amount then return false end
 
-            xPlayer.removeAccountMoney(account, money)
+            xPlayer.removeAccountMoney(account, amount)
             return true
         end,
     },
