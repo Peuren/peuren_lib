@@ -7,6 +7,10 @@ Inventory = {
     end,
     GetItem = function(source, item)
 
+    end,
+    HasPlayerItem = function(source, item, count)
+        local xPlayer = ESX.GetPlayerFromId(source)
+        return count <= xPlayer.getInventoryItem(item).count
     end
 }
 

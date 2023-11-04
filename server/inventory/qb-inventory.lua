@@ -11,6 +11,14 @@ Inventory = {
         local Player = QBCore.Functions.GetPlayer(source)
         return Player.Functions.GetItemByName(item)
     end,
+    HasPlayerItem = function(source, itemName, count)
+        local Player = QBCore.Functions.GetPlayer(source)
+        if not Player then return false end
+        local item = Player.Functions.GetItemByName(itemName)
+        if not item then return false end
+        if not count and item then return true end
+        return count <= item.amount
+    end
 }
 
 return Inventory
