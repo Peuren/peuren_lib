@@ -18,6 +18,9 @@ Framework = {
             full = ("%s %s"):format(Player.PlayerData.charinfo.firstname, Player.PlayerData.charinfo.lastname)
         }
     end,
+    GetPlayers = function()
+        return QBCore.Functions.GetPlayers()
+    end,
     HasGroup = function(player, group)
         return QBCore.Functions.HasPermission(player, group)
     end,

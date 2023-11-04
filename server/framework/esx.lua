@@ -18,6 +18,9 @@ Framework = {
             full = xPlayer.getName()
         }
     end,
+    GetPlayers = function()
+        return ESX.GetPlayers()
+    end,
     HasGroup = function(player, group)
         local xPlayer = ESX.GetPlayerFromId(player)
         if not xPlayer then return end
