@@ -9,8 +9,7 @@ Inventory = {
         return exports[Config.InventoryResource]:GetItem(source, item)
     end,
     HasPlayerItem = function(source, item, count)
-        local xPlayer = ESX.GetPlayerFromId(source)
-        return count <= xPlayer.getInventoryItem(item).count
+        return count <= exports[Config.InventoryResource]:GetItem(source, item).count
     end
 }
 
