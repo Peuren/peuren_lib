@@ -37,7 +37,7 @@ Framework = {
 
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end
-            return xPlayer.addAccountMoney(account, money)
+            return xPlayer.addAccountMoney(account, amount)
         end,
         Get = function(player, account)
             if account ~= "cash" and account ~= "bank" then
