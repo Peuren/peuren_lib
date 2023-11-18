@@ -86,11 +86,7 @@ Framework = {
             if not xPlayer then return end
             return xPlayer.getJob().grade_label
         end
-    },
-    GetItemLabel = function(item)
-        if not QBCore.Shared.Items[item] then return "NO_LABEL" end
-        return QBCore.Shared.Items[item].label
-    end
+    }
 }
 
 return Framework
