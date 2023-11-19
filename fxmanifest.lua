@@ -8,7 +8,7 @@ lua54 'yes'
 client_script 'client/main.lua'
 server_script 'server/main.lua'
 shared_scripts { 
-  --'@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your servber
+  --'@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your server
   'utils/**/*.lua', 
   'shared/**/*.lua' 
 }
