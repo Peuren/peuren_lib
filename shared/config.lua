@@ -28,3 +28,4 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
 Config.WeatherSync = 'qb-weathersync'-- qb-weathersync / cd_easytime - The weathersync system thet you're using
 
 Config.Dispatch = 'cd_dispatch' -- cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
+Config.DispatchResource = "cd_dispatch" -- The dispatch system folder name that you're using

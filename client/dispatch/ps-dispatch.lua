@@ -1,14 +1,17 @@
 Dispatch = function(data)
-    exports["ps-dispatch"]:CustomAlert({
+    exports[Config.DispatchResource]:CustomAlert({
         coords = data.pos.xyz,
         message = data.message,
-        dispatchCode = data.dispatch_code,
-        description =  data.message,
-        radius = 25.0,
-        sprite = data.sprite,
-        color = data.color,
-        scale = data.scale,
-        length = data.time,
+        alert = {
+            displayCode = data.dispatch_code,
+            description = data.message,
+            sprite = data.sprite,
+            color = data.color,
+            scale = data.scale,
+            length = data.time,
+            flash = true
+        },
+        jobs = data.police.groups[1]
     })
 end 
 
