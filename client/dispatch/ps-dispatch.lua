@@ -11,7 +11,7 @@ Dispatch = function(data)
             length = data.time,
             flash = true
         },
-        jobs = data.police.groups[1]
+        jobs = data.police_jobs
     })
 end 
 
