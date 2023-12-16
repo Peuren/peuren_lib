@@ -2,6 +2,7 @@ Dispatch = function(data)
     exports[Config.DispatchResource]:CustomAlert({
         coords = data.pos.xyz,
         message = data.message,
+        code = data.dispatch_code,
         alert = {
             displayCode = data.dispatch_code,
             description = data.message,
