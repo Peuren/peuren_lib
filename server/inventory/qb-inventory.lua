@@ -1,15 +1,55 @@
 Inventory = {
-    AddItem = function(source, item, amount) 
+    AddItem = function(source, item, amount, metadata) 
         local Player = QBCore.Functions.GetPlayer(source)
-        return Player.Functions.AddItem(item, amount)
+        return Player.Functions.AddItem(item, amount, nil, metadata)
     end,
-    RemoveItem = function(source, item, amount)
+    RemoveItem = function(source, item, amount, metadata)
         local Player = QBCore.Functions.GetPlayer(source)
-        return Player.Functions.RemoveItem(item, amount)
+        local slot = nil
+        if metadata then
+            local items = Player.Functions.GetItemsByName(item)
+            for k, v in pairs(items) do
+                if v.info == metadata then slot = v.slot end
+            end
+        end
+        return Player.Functions.RemoveItem(item, amount, slot)
     end,
-    GetItem = function(source, item)
+    GetItem = function(source, item, metadata)
         local Player = QBCore.Functions.GetPlayer(source)
-        return Player.Functions.GetItemByName(item)
+        if not metadata then
+            local item = Player.Functions.GetItemByName(item)
+            if not item then return nil end
+            return {
+                item = itemData.name,
+                count = itemData.amount,
+                metadata = itemData.info,
+            }
+        else
+            local items = Player.Functions.GetItemsByName(item)
+            for k, v in pairs(items) do
+                if v.info == metadata then 
+                    return {
+                        item = v.name,
+                        count = v.amount,
+                        metadata = v.info
+                    }
+                end
+            end
+        end
+    end,
+    GetItems = function(source)
+        local items = QBCore.Functions.GetPlayer(source).PlayerData.items
+        if not items then return {} end
+
+        local formattedItems = {}
+        for k, v in pairs(items) do
+            formattedItems[#formattedItems+1] = {
+                item = v.name,
+                count = v.amount,
+                metadata = v.info,
+            }
+        end
+        return formattedItems
     end,
     HasPlayerItem = function(source, itemName, count)
         local Player = QBCore.Functions.GetPlayer(source)
