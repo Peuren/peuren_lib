@@ -18,6 +18,9 @@ Inventory = {
         if not item then return false end
         if not count and item then return true end
         return count <= item.amount
+    end,
+    RegisterUsableItem = function(item, callback)
+        QBCore.Functions.CreateUseableItem(item, callback)
     end
 }
 

@@ -10,6 +10,13 @@ Inventory = {
     end,
     HasPlayerItem = function(source, item, count)
         return count <= exports[Config.InventoryResource]:GetItem(source, item).count
+    end,
+    RegisterUsableItem = function(item, callback)
+        if Config.Framework == "qb" then
+            QBCore.Functions.CreateUseableItem(item, callback)
+        elseif Config.Framework == "esx" then
+            ESX.RegisterUsableItem(item, callback)
+        end
     end
 }
 

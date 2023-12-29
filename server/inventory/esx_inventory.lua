@@ -22,6 +22,9 @@ Inventory = {
         if not item then return false end
         if not count and item then return true end
         return count <= item.count
+    end,
+    RegisterUsableItem = function(item, callback)
+        ESX.RegisterUsableItem(item, callback)
     end
 }
 

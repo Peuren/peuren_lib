@@ -10,7 +10,11 @@ Inventory = {
         return { count = amount }
     end,
     HasPlayerItem = function(source, item, count)
-        return count <= exports[Config.InventoryResource]:GetItemTotalAmount(source, item)
+        local xPlayer = ESX.GetPlayerFromId(source)
+        return count <= xPlayer.getInventoryItem(item).count
+    end,
+    RegisterUsableItem = function(item, callback)
+        exports[Config.InventoryResource]:CreateUsableItem(item, callback)
     end
 }
 
