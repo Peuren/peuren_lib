@@ -9,7 +9,7 @@ Inventory = {
         if metadata then
             local items = Player.Functions.GetItemsByName(item)
             for k, v in pairs(items) do
-                if v.info == metadata then slot = v.slot end
+                if Utils.CompareTables(v.info, metadata) then slot = v.slot end
             end
         end
         return Player.Functions.RemoveItem(item, amount, slot)
@@ -27,7 +27,7 @@ Inventory = {
         else
             local items = Player.Functions.GetItemsByName(item)
             for k, v in pairs(items) do
-                if v.info == metadata then 
+                if Utils.CompareTables(v.info, metadata) then 
                     return {
                         item = v.name,
                         count = v.amount,
@@ -36,6 +36,8 @@ Inventory = {
                 end
             end
         end
+
+        return nil
     end,
     GetItems = function(source)
         local items = QBCore.Functions.GetPlayer(source).PlayerData.items

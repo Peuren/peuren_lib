@@ -17,10 +17,10 @@ Config.Target = "qb-target" -- qb-target / ox_target / qtarget - The target syst
 Config.ProgessBar = 'qb' -- ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb - The progress bar system that you're using.
 
 Config.Menu = 'qb' -- ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb / nh-context / esx_menu_default / esx_context - The menu system that you're using.
-Config.MenuResource = 'ox_lib'
+Config.MenuResource = 'qb-menu'
 
 Config.Input = 'qb-input' -- ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb-input / nh-keyboard - The input system that you're using
-Config.InputResource = 'ox_lib' -- The input system folder name that you're using
+Config.InputResource = 'qb-input' -- The input system folder name that you're using
 
 Config.Notifications = "qb" -- ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb / esx / okok / mythic - The notification system that your're using
 Config.NotificationsResource = "ox_lib" -- The notification system folder name that you're using
