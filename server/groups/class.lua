@@ -29,6 +29,8 @@ Groups = {
     ---@param data table
     Create = function(data)
         local groupId = Groups.CreateGroupId()
+        data.groupId = groupId
+        data.resource = GetInvokingResource()
         Groups.Data[groupId] = data
         return groupId, data
     end,
@@ -58,6 +60,20 @@ Groups = {
         Groups.Data[id].players[user] = nil
     end,
 
+    ---Checks if a player is not in a group already
+    ---@param source number
+    ---@param job string
+    IsPlayerInAnyGroup = function(source, job)
+        for _,v in pairs(Groups.Data) do 
+            if v.job == job then 
+                for id,_ in pairs(v.players) do 
+                    if tonumber(id) == source then return true end
+                end
+            end
+        end
+        return false
+    end,
+
     ---Sends a event to all group members
     ---@param id string 
     ---@param name string
@@ -68,7 +84,7 @@ Groups = {
 
         for _, v in pairs(users) do 
             if args ~= nil then
-                TriggerClientEvent(name, v.source, table.unpack(args))
+                TriggerClientEvent(name, v.source, args)
             else 
                 TriggerClientEvent(name, v.source)
             end

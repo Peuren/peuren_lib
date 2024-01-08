@@ -17,7 +17,7 @@ Target = {
                 distance = distance
             }
         end
-        exports.ox_target:addLocalEntity(entities, tOptions)
+        return exports[Config.TargetResource]:addLocalEntity(entities, tOptions)
     end,
     AddBone = function(bones, options, distance)
         local tOptions = {}
@@ -32,7 +32,7 @@ Target = {
                 distance = distance
             }
         end
-        exports.ox_target:addGlobalVehicle(tOptions)
+        return exports[Config.TargetResource]:addGlobalVehicle(tOptions)
     end,
     AddModel = function(models, options, distance)
         local tOptions = {}
@@ -46,7 +46,7 @@ Target = {
                 distance = distance
             }
         end
-        exports.ox_target:addModel(models, tOptions)
+        return exports[Config.TargetResource]:addModel(models, tOptions)
     end,
     AddBoxZone = function(boxData, options, distance)
         local tOptions = {}
@@ -60,7 +60,7 @@ Target = {
                 distance = distance
             }
         end
-        return exports.ox_target:addBoxZone({
+        return exports[Config.TargetResource]:addBoxZone({
             name = boxData.name,
             coords = boxData.coords,
             size = boxData.size,
@@ -71,11 +71,11 @@ Target = {
             drawSprite = Config.Debug
         })
     end,
-    RemoveZone = function(id)
-        exports.ox_target:removeZone(id)
+    RemoveZone = function(data)
+        exports[Config.TargetResource]:removeZone(DatafileDelete)
     end,
     RemoveEntityZone = function(entities, names)
-        exports.ox_target:removeLocalEntity(entities, names)
+        exports[Config.TargetResource]:removeLocalEntity(entities, names)
     end
 }
 

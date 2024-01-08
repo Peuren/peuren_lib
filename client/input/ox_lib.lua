@@ -32,8 +32,12 @@ Input = function(title, options)
         end
     end
 
+    if not next(input) then return end
+
     local inputValues = lib.inputDialog(title, input)
     local returnValues = {}
+
+    if not inputValues then return end
 
     for k, v in pairs(inputValues) do
         returnValues[options[k].name] = v

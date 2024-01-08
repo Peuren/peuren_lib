@@ -13,6 +13,10 @@ Framework = {
             ESX.TriggerServerCallback(name, cb, ...)
         end
     },
+
+    SpawnVehicle = function(model, pos, cb, networked)
+        ESX.Game.SpawnVehicle(model, pos, heading, cb, networked)
+    end
 }
 
 AddEventHandler('esx:onPlayerSpawn', function()

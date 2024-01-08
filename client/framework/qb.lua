@@ -13,6 +13,10 @@ Framework = {
             QBCore.Functions.TriggerCallback(name, cb, ...)
         end
     },
+
+    SpawnVehicle = function(model, pos, cb, networked)
+        QBCore.Functions.SpawnVehicle(model, cb, pos, networked)
+    end
 }
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()

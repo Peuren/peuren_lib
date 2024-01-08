@@ -9,7 +9,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports["qb-target"]:AddTargetEntity(entities, {
+        return exports[Config.TargetResource]:AddTargetEntity(entities, {
             options = tOptions,
             distance = distance
         })
@@ -24,7 +24,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports["qb-target"]:AddTargetBone(bones, {
+        return exports[Config.TargetResource]:AddTargetBone(bones, {
             options = tOptions,
             distance = distance
         })
@@ -39,7 +39,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports['qb-target']:AddTargetModel(models, {
+        return exports[Config.TargetResource]:AddTargetModel(models, {
             options = tOptions,
             distance = distance
         })
@@ -54,7 +54,7 @@ Target = {
                 action = v.onSelect
             }
         end
-        exports['qb-target']:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
+        return exports[Config.TargetResource]:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
             resource = GetInvokingResource(),
             name = boxData.name,
             heading = boxData.heading,
@@ -66,11 +66,11 @@ Target = {
             distance = distance
         })
     end,
-    RemoveZone = function(id)
-        exports['qb-target']:RemoveZone(id)
+    RemoveZone = function(data)
+        exports[Config.TargetResource]:RemoveZone(data.name)
     end,
     RemoveEntityZone = function(entities, names)
-        exports['qb-target']:RemoveTargetEntity(entities, names)
+        exports[Config.TargetResource]:RemoveTargetEntity(entities, names)
     end
 }
 
