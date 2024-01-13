@@ -26,4 +26,8 @@ Dispatch = function(data)
     end
 end 
 
+RegisterNetEvent('peuren_lib:SendDispatchAlert', function(data)
+    Dispatch(data)
+end)
+
 return Dispatch

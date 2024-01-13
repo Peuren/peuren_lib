@@ -59,6 +59,7 @@ Core = {}
 Core.Framework = LoadModule("framework", Config.Framework)
 Core.Database = LoadModule("database", Config.SQLConnector)
 Core.Inventory = LoadModule("inventory", Config.Inventory)
+Core.Dispatch = LoadModule("dispatch", Config.Dispatch)
 Core.Groups = Groups
 Core.Version = VersionCheck
 Core.LoadLocales = loadLocales
