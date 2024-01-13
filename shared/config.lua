@@ -29,6 +29,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
 Config.WeatherSync = 'qb-weathersync'-- qb-weathersync / cd_easytime - The weathersync system thet you're using
 
 Config.Dispatch = 'cd_dispatch' -- cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
+Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder name
 
 Config.Fuel = 'LegacyFuel' -- LegacyFuel / ox_fuel / lj-fuel / ti-fuel / ND_fuel / ps-fuel / esx-sna-fuel / cdn-fuel / FRFuel -- The fuel system that you're using
 Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
