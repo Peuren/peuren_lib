@@ -14,7 +14,8 @@ Target = {
                 label = v.label,
                 canInteract = v.canInteract,
                 onSelect = TransformOnSelect(v.onSelect),
-                distance = distance
+                distance = distance,
+                groups = v.jobs,
             }
         end
         return exports[Config.TargetResource]:addLocalEntity(entities, tOptions)
@@ -29,7 +30,8 @@ Target = {
                 canInteract = v.canInteract,
                 onSelect = TransformOnSelect(v.onSelect),
                 bones = bones,
-                distance = distance
+                distance = distance,
+                groups = v.jobs,
             }
         end
         return exports[Config.TargetResource]:addGlobalVehicle(tOptions)
@@ -43,7 +45,8 @@ Target = {
                 label = v.label,
                 canInteract = v.canInteract,
                 onSelect = TransformOnSelect(v.onSelect),
-                distance = distance
+                distance = distance,
+                groups = v.jobs,
             }
         end
         return exports[Config.TargetResource]:addModel(models, tOptions)
@@ -57,7 +60,8 @@ Target = {
                 label = v.label,
                 canInteract = v.canInteract,
                 onSelect = TransformOnSelect(v.onSelect),
-                distance = distance
+                distance = distance,
+                groups = v.jobs,
             }
         end
         return exports[Config.TargetResource]:addBoxZone({

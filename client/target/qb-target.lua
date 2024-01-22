@@ -1,4 +1,12 @@
 Target = {
+    FormatJobs = function(jobs)
+        local data = {}
+        if not jobs then return end
+        for _,job in pairs(jobs) do 
+            data[job] = 0
+        end
+        return data
+    end,
     AddEntity = function(entities, options, distance)
         local tOptions = {}
         for k, v in pairs(options) do
@@ -6,7 +14,8 @@ Target = {
                 icon = v.icon,
                 label = v.label,
                 canInteract = v.canInteract,
-                action = v.onSelect
+                action = v.onSelect,
+                job = Target.FormatJobs(v.jobs),
             }
         end
         return exports[Config.TargetResource]:AddTargetEntity(entities, {
@@ -21,7 +30,8 @@ Target = {
                 icon = v.icon,
                 label = v.label,
                 canInteract = v.canInteract,
-                action = v.onSelect
+                action = v.onSelect,
+                job = Target.FormatJobs(v.jobs),
             }
         end
         return exports[Config.TargetResource]:AddTargetBone(bones, {
@@ -36,7 +46,8 @@ Target = {
                 icon = v.icon,
                 label = v.label,
                 canInteract = v.canInteract,
-                action = v.onSelect
+                action = v.onSelect,
+                job = Target.FormatJobs(v.jobs),
             }
         end
         return exports[Config.TargetResource]:AddTargetModel(models, {
@@ -51,7 +62,8 @@ Target = {
                 icon = v.icon,
                 label = v.label,
                 canInteract = v.canInteract,
-                action = v.onSelect
+                action = v.onSelect,
+                job = Target.FormatJobs(v.jobs),
             }
         end
         return exports[Config.TargetResource]:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {

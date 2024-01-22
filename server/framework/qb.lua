@@ -18,6 +18,23 @@ Framework = {
             full = ("%s %s"):format(Player.PlayerData.charinfo.firstname, Player.PlayerData.charinfo.lastname)
         }
     end,
+    GetJobPlayerCount = function(jobs)
+        local count = 0
+
+        for id in pairs(QBCore.Functions.GetPlayers()) do 
+            local player = QBCore.Functions.GetPlayer(id)
+            if not player then goto continue end
+
+            for job in pairs(jobs) do 
+                print(job)
+                if player.PlayerData.job.name == job or player.PlayerData.job.type == job  then 
+                    count += 1
+                end
+            end
+            :: continue ::
+        end
+        return count
+    end,
     GetPlayers = function()
         return QBCore.Functions.GetPlayers()
     end,

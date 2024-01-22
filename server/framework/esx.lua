@@ -19,6 +19,22 @@ Framework = {
             full = xPlayer.getName()
         }
     end,
+    GetJobPlayerCount = function(jobs)
+        local count = 0
+
+        for id in pairs(ESX.GetPlayers()) do 
+            local xPlayer = ESX.GetPlayerFromId(id)
+            if not xPlayer then goto continue end
+
+            for job in pairs(jobs) do 
+                if xPlayer.getJob().name == job then 
+                    count += 1
+                end
+            end
+            :: continue ::
+        end
+        return count
+    end,
     GetPlayers = function()
         return ESX.GetPlayers()
     end,
