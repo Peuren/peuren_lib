@@ -76,7 +76,7 @@ Target = {
         })
     end,
     RemoveZone = function(data)
-        exports[Config.TargetResource]:removeZone(DatafileDelete)
+        exports[Config.TargetResource]:removeZone(data)
     end,
     RemoveEntityZone = function(entities, names)
         exports[Config.TargetResource]:removeLocalEntity(entities, names)
