@@ -1,9 +1,9 @@
 TextUI = {
     Draw = function(text, pos)
-        lib.showTextUI(text)
+        exports['qb-core']:DrawText(text, 'right')
     end,
     Stop = function()
-        lib.hideTextUI()
+        exports['qb-core']:HideText()
     end
 }
 

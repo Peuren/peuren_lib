@@ -28,6 +28,7 @@ Core.Target = LoadModule("target", Config.Target)
 Core.Input = LoadModule("input", Config.Input)
 Core.Menu = LoadModule("menu", Config.Menu)
 Core.Fuel = LoadModule("fuel", Config.Fuel)
+Core.TextUI = LoadModule("textui", Config.TextUI)
 Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Locale = locale
