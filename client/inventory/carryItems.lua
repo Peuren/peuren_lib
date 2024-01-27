@@ -1,5 +1,3 @@
-if not Config.CarryItemsEnabled then return end
-
 CarryItems = {
     Items = {},
     InInventory = {},
@@ -10,22 +8,29 @@ CarryItems = {
     },
 
     AddCarriableItem = function(itemName, options)
+        if not Config.CarryItemsEnabled then return end
+
         CarryItems.Items[itemName] = options
     end,
 
     RemoveCarriableItem = function(itemName)
+        if not Config.CarryItemsEnabled then return end
+
         CarryItems.Items[itemName] = nil
         
         CarryItems.ItemRemoved(itemName)
     end,
 
     ItemAdded = function(itemName)
+        if not Config.CarryItemsEnabled then return end
+
         if not CarryItems.Items[itemName] then return end
 
         CarryItems.InInventory[itemName] = true
     end,
 
     ItemRemoved = function(itemName)
+        if not Config.CarryItemsEnabled then return end
         if not CarryItems.InInventory[itemName] then return end
 
         CarryItems.InInventory[itemName] = nil
@@ -43,6 +48,7 @@ CarryItems = {
     end,
 
     UpdateAnimation = function()
+        if not Config.CarryItemsEnabled then return end
         if CarryItems.Current.item then return end
         
         local key, value = next(CarryItems.InInventory)
@@ -72,6 +78,7 @@ CarryItems = {
 }
 
 Citizen.CreateThread(function()
+    if not Config.CarryItemsEnabled then return end
     while true do
         if CarryItems.Current.item then
             if CarryItems.Current.options.anim ~= nil then
