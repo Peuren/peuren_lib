@@ -1,3 +1,9 @@
 {
-    "input_confirm": "Confirm"
+    "input_confirm": "Confirm",
+    "skill_menu_title": "Skills",
+    "peuren_fishing": "Fishing",
+    "peuren_burglary_hacking": "Alarm Hacking",
+    "peuren_burglary_lockpicking": "House Lockpicking",
+    "peuren_burglary_looting": "House Looting",
+    "skill_menu_description": "%s XP | %s LVL"
 }

@@ -40,4 +40,8 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
 Config.VehicleKeys = 'qb-vehiclekeys' -- F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
 Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource folder name
 
-Config.CarryItemsEnabled = true -- Shoul the Carry Items system be enabled for supported inventores esx/qb/ox_inventory (QS-INVENTORY support is coming)
+Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled for supported inventores esx/qb/ox_inventory (QS-INVENTORY support is coming)
+Config.SkillMenu = { -- Configuration for skill menu.
+    Enabled = true, -- Should the Skill Menu be enabled
+    Command = "skills" -- The comand which opens the skill menu. Set this to false to disable it. Skill menu can be also opened by using exports["peuren_lib"]:OpenSkillMenu()
+}

@@ -66,4 +66,46 @@ Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Locale = locale
 
+Core.Framework.RegisterCallback("peuren_lib:GetSkillData", function(source, cb)
+    local skillData = {}
+
+    if GetResourceState("peuren_fishing") == "started" then
+        local pData = exports["peuren_fishing"]:GetPlayerData(source)
+
+        skillData[#skillData+1] = {
+            locale = "peuren_fishing",
+            xp = pData.Skill.xp,
+            level = pData.Skill.level
+        }
+    end
+
+    if GetResourceState("peuren_burglary") == "started" then
+        local hacking = exports["peuren_burglary"]:GetPlayerSkill(source, "hacking")
+
+        skillData[#skillData+1] = {
+            locale = "peuren_burglary_hacking",
+            xp = hacking.XP,
+            level = hacking.Level
+        }
+
+        local lockpicking = exports["peuren_burglary"]:GetPlayerSkill(source, "lockpicking")
+
+        skillData[#skillData+1] = {
+            locale = "peuren_burglary_lockpicking",
+            xp = lockpicking.XP,
+            level = lockpicking.Level
+        }
+
+        local looting = exports["peuren_burglary"]:GetPlayerSkill(source, "looting")
+
+        skillData[#skillData+1] = {
+            locale = "peuren_burglary_looting",
+            xp = looting.XP,
+            level = looting.Level
+        }
+    end
+
+    cb(skillData)
+end)
+
 exports("Core", function() return Core end)

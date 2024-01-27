@@ -1,3 +1,7 @@
 {
-    "input_confirm": "Patvirtinti"
+    "input_confirm": "Patvirtinti",
+    "peuren_fishing": "Žvejyba",
+    "peuren_burglary_hacking": "Signalizacijų nulaužimas",
+    "peuren_burglary_lockpicking": "Namų spynų nulaužimas",
+    "peuren_burglary_looting": "Namų apieška"
 }
