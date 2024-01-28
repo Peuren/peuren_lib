@@ -1,6 +1,7 @@
 ESX = exports[Config.FrameworkResource]:getSharedObject()
 
 Framework = {
+    PlayerLoaded = ESX.IsPlayerLoaded(),
     Callbacks = {
         Trigger = function(name, ...)
             local p = promise:new()
@@ -21,6 +22,7 @@ Framework = {
 
 AddEventHandler('esx:onPlayerSpawn', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
+    Framework.PlayerLoaded = true
 end)
 
 return Framework

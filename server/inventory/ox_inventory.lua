@@ -43,4 +43,8 @@ Inventory = {
     end
 }
 
+Core.Framework.RegisterCallback("peuren_lib:GetPlayerInventory", function(player, cb)
+    cb(Inventory.GetItems(player))
+end)
+
 return Inventory

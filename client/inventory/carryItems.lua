@@ -50,6 +50,10 @@ CarryItems = {
     UpdateAnimation = function()
         if not Config.CarryItemsEnabled then return end
         if CarryItems.Current.item then return end
+
+        if CarryItems.Current.prop then 
+            DeleteEntity(CarryItems.Current.prop)
+        end
         
         local key, value = next(CarryItems.InInventory)
         if not key then return end
@@ -73,6 +77,9 @@ CarryItems = {
         local pCoords = GetEntityCoords(PlayerPedId())
 
         CarryItems.Current.prop = CreateObject(GetHashKey(options.prop), pCoords.x, pCoords.y, pCoords.z + 0.2,  true,  true, true)
+        while not DoesEntityExist(CarryItems.Current.prop) do
+            Citizen.Wait(10)
+        end
         AttachEntityToEntity(CarryItems.Current.prop, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), options.boneIndex), options.offsets[1], options.offsets[2], options.offsets[3], options.offsets[4], options.offsets[5], options.offsets[6], true, true, false, true, 1, true)
     end
 }
@@ -118,7 +125,7 @@ AddEventHandler("onResourceStop", function(rName)
 end)
 
 
---[[CarryItems.AddCarriableItem("bread", {
+CarryItems.AddCarriableItem("lockpick", {
     prop = "prop_cs_cardbox_01",
     anim = "idle",
     animDict = "anim@heists@box_carry@",
@@ -129,4 +136,20 @@ end)
     offsets = {
         0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
     }
-})]]
+})
+
+Citizen.CreateThread(function()
+    while not Core.Framework.PlayerLoaded do
+        Citizen.Wait(100)
+    end
+
+    Citizen.Wait(10000)
+
+    local playerInventory = Core.Framework.Callbacks.Trigger("peuren_lib:GetPlayerInventory")
+    
+    for k, v in pairs(playerInventory) do
+        CarryItems.ItemAdded(v.item)
+    end
+
+    CarryItems.UpdateAnimation()
+end)

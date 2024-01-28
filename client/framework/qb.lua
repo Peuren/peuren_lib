@@ -1,6 +1,7 @@
 QBCore = exports[Config.FrameworkResource]:GetCoreObject()
 
 Framework = {
+    PlayerLoaded = QBCore.Functions.GetPlayerData() ~= nil,
     Callbacks = {
         Trigger = function(name, ...)
             local p = promise:new()
@@ -21,6 +22,7 @@ Framework = {
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
+    Framework.PlayerLoaded = true
 end)
 
 return Framework
