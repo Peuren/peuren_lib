@@ -40,7 +40,7 @@ Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder n
 Config.Fuel = 'LegacyFuel' -- LegacyFuel / ox_fuel / lj-fuel / ti-fuel / ND_fuel / ps-fuel / esx-sna-fuel / cdn-fuel / FRFuel -- The fuel system that you're using
 Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
 
-Config.VehicleKeys = 'qb-vehiclekeys' -- F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
+Config.VehicleKeys = 'qb-vehiclekeys' -- t1ger_keys / F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
 Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource folder name
 
 Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled for supported inventores esx/qb/ox_inventory (QS-INVENTORY support is coming)
