@@ -80,6 +80,9 @@ Target = {
     end,
     RemoveEntityZone = function(entities, names)
         exports[Config.TargetResource]:removeLocalEntity(entities, names)
+    end,
+    RemoveBone = function(bones, names)
+        exports[Config.TargetResource]:removeGlobalVehicle(bones)
     end
 }
 
