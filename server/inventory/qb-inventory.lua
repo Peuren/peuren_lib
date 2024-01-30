@@ -40,7 +40,9 @@ Inventory = {
         return nil
     end,
     GetItems = function(source)
-        local items = QBCore.Functions.GetPlayer(source).PlayerData.items
+        local QPlayer = QBCore.Functions.GetPlayer(source)
+        if not QPlayer then return {} end
+        local items = QPlayer.PlayerData.items
         if not items then return {} end
 
         local formattedItems = {}

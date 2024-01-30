@@ -26,7 +26,6 @@ Framework = {
             if not player then goto continue end
 
             for job in pairs(jobs) do 
-                print(job)
                 if player.PlayerData.job.name == job or player.PlayerData.job.type == job  then 
                     count += 1
                 end
