@@ -124,20 +124,6 @@ AddEventHandler("onResourceStop", function(rName)
     end
 end)
 
-
-CarryItems.AddCarriableItem("lockpick", {
-    prop = "prop_cs_cardbox_01",
-    anim = "idle",
-    animDict = "anim@heists@box_carry@",
-    disableSprint = true,
-    disableJump = true,
-    disableFight = true,
-    boneIndex = 28422,
-    offsets = {
-        0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-    }
-})
-
 Citizen.CreateThread(function()
     while not Core.Framework.PlayerLoaded do
         Citizen.Wait(100)
