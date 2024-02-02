@@ -1,7 +1,9 @@
 {
     "input_confirm": "Patvirtinti",
+    "skill_menu_title": "Įgūdžiai",
     "peuren_fishing": "Žvejyba",
     "peuren_burglary_hacking": "Signalizacijų nulaužimas",
     "peuren_burglary_lockpicking": "Namų spynų nulaužimas",
-    "peuren_burglary_looting": "Namų apieška"
+    "peuren_burglary_looting": "Namų apieška",
+    "skill_menu_description": "%s XP | %s LVL"
 }

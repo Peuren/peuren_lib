@@ -125,6 +125,7 @@ AddEventHandler("onResourceStop", function(rName)
 end)
 
 Citizen.CreateThread(function()
+    while not Core do Citizen.Wait(100) end
     while not Core.Framework.PlayerLoaded do
         Citizen.Wait(100)
     end
