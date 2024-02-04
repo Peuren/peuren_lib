@@ -1,7 +1,8 @@
 local dict = {}
 
 function locale(str, ...)
-    local lstr = dict[str]
+    local resource = GetInvokingResource() or GetCurrentResourceName()
+    local lstr = dict[resource][str]
 
     if lstr then
         if ... then
@@ -37,6 +38,8 @@ function loadLocales()
         if not locales then return end
     end
 
+
+    if not dict[resource] then dict[resource] = {} end
     for k, v in pairs(locales) do
         if type(v) == 'string' then
             for var in v:gmatch('${[%w%s%p]-}') do
@@ -48,7 +51,6 @@ function loadLocales()
                 end
             end
         end
-
-        dict[k] = v
+        dict[resource][k] = v
     end
 end
