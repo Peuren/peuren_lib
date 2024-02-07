@@ -6,6 +6,19 @@ end
 
 Target = {
     AddEntity = function(entities, options, distance)
+        if type(entities) == 'table' then
+            for k,v in pairs(entities) do 
+                if not DoesEntityExist(v) then 
+                    print(json.encode(k), json.encode(v))
+                    entities[k] = NetworkGetEntityFromNetworkId(v)
+                end
+            end
+        else 
+            if not DoesEntityExist(entities) then 
+                entities = NetworkGetEntityFromNetworkId(entities)
+            end
+        end
+
         local tOptions = {}
         for k, v in pairs(options) do
             tOptions[#tOptions + 1] = {
