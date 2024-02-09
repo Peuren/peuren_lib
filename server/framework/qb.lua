@@ -25,8 +25,8 @@ Framework = {
             local player = QBCore.Functions.GetPlayer(id)
             if not player then goto continue end
 
-            for job in pairs(jobs) do 
-                if player.PlayerData.job.name == job or player.PlayerData.job.type == job  then 
+            for _, job in pairs(jobs) do
+                if player.PlayerData.job.type == job or player.PlayerData.job.name == job then 
                     count += 1
                 end
             end

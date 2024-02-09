@@ -22,7 +22,7 @@ Framework = {
     GetJobPlayerCount = function(jobs)
         local count = 0
 
-        for id in pairs(ESX.GetPlayers()) do 
+        for id,_ in pairs(ESX.GetPlayers()) do 
             local xPlayer = ESX.GetPlayerFromId(id)
             if not xPlayer then goto continue end
 
