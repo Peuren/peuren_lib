@@ -8,8 +8,7 @@ Target = {
     AddEntity = function(entities, options, distance)
         if type(entities) == 'table' then
             for k,v in pairs(entities) do 
-                if not DoesEntityExist(v) then 
-                    print(json.encode(k), json.encode(v))
+                if not DoesEntityExist(v) then
                     entities[k] = NetworkGetEntityFromNetworkId(v)
                 end
             end
@@ -92,6 +91,17 @@ Target = {
         exports[Config.TargetResource]:removeZone(data)
     end,
     RemoveEntityZone = function(entities, names)
+        if type(entities) == 'table' then
+            for k,v in pairs(entities) do 
+                if not DoesEntityExist(v) then
+                    entities[k] = NetworkGetEntityFromNetworkId(v)
+                end
+            end
+        else 
+            if not DoesEntityExist(entities) then 
+                entities = NetworkGetEntityFromNetworkId(entities)
+            end
+        end        
         exports[Config.TargetResource]:removeLocalEntity(entities, names)
     end,
     RemoveBone = function(bones, names)

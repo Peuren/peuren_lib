@@ -32,6 +32,7 @@ Groups = {
         data.groupId = groupId
         data.resource = GetInvokingResource()
         Groups.Data[groupId] = data
+        Groups.Data[groupId].args.groupId = groupId
         return groupId, data
     end,
 
@@ -44,6 +45,7 @@ Groups = {
         if not Groups.Data[id] then return end
 
         Groups.Data[id].players[user] = { 
+            name = Core.Framework.GetCharName(source),
             source = source,
             id = user 
         }
@@ -84,9 +86,9 @@ Groups = {
 
         for _, v in pairs(users) do 
             if args ~= nil then
-                TriggerClientEvent(name, v.source, args)
+                TriggerClientEvent(name, v.source, args, v.owner)
             else 
-                TriggerClientEvent(name, v.source)
+                TriggerClientEvent(name, v.source, v.owner)
             end
         end
     end,

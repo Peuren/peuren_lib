@@ -27,6 +27,7 @@ CarryItems = {
         if not CarryItems.Items[itemName] then return end
 
         CarryItems.InInventory[itemName] = true
+        TriggerEvent('peuren_lib:AddedItem', itemName)
     end,
 
     ItemRemoved = function(itemName)
@@ -37,6 +38,13 @@ CarryItems = {
 
         if CarryItems.Current.item ~= itemName then
             return
+        end    
+
+        if CarryItems.Current.options.clothing then 
+            local options = CarryItems.Current.options
+            if not options then return end
+            local clohting = IsPedMale(PlayerPedId()) and options.clothing.male or options.clothing.female
+            SetPedComponentVariation(PlayerPedId(), clohting.id, 0, 0, 0)
         end
 
         DeleteEntity(CarryItems.Current.prop)
@@ -45,6 +53,7 @@ CarryItems = {
         CarryItems.Current.options = nil
 
         ClearPedTasks(PlayerPedId())
+        TriggerEvent('peuren_lib:RemovedItem', itemName)
     end,
 
     UpdateAnimation = function()
@@ -69,6 +78,9 @@ CarryItems = {
             end
 
             TaskPlayAnim(PlayerPedId(), options.animDict, options.anim, 2.0, 2.0, -1, 51, 0, false, false, false)
+        elseif options.clothing then
+            local clohting = IsPedMale(PlayerPedId()) and options.clothing.male or options.clothing.female
+            SetPedComponentVariation(PlayerPedId(), clohting.id, clohting.drawable, clohting.texture, 0)
         end
 
         CarryItems.Current.item = key
