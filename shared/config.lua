@@ -4,8 +4,8 @@ Config.Debug = true -- Adds additional prints and enables all other resource deb
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
-Config.Framework = "esx" -- esx / qb - The framework your server is based on
-Config.FrameworkResource = "es_extended" -- Framework resource name
+Config.Framework = "qb" -- esx / qb - The framework your server is based on
+Config.FrameworkResource = "qb-core" -- Framework resource name
 
 Config.SQLConnector = "oxmysql" -- oxmysql / mysql-async  / ghmattimysql - The SQL connector resource that you're using.
 
@@ -34,13 +34,13 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
 
 Config.WeatherSync = 'qb-weathersync'-- qb-weathersync / cd_easytime - The weathersync system thet you're using
 
-Config.Dispatch = 'cd_dispatch' -- rcore_dispatch h/ cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
+Config.Dispatch = 'cd_dispatch' -- rcore_dispatch / cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
 Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder name
 
 Config.Fuel = 'LegacyFuel' -- LegacyFuel / ox_fuel / lj-fuel / ti-fuel / ND_fuel / ps-fuel / esx-sna-fuel / cdn-fuel / FRFuel -- The fuel system that you're using
 Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
 
-Config.VehicleKeys = 'qb-vehiclekeys' -- cd_garage / t1ger_keys / F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
+Config.VehicleKeys = 'qb-vehiclekeys' -- qs-vehiclekeys / wasabi_carlock / cd_garage / t1ger_keys / F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
 Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource folder name
 
 Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled for supported inventores esx/qb/ox_inventory (QS-INVENTORY support is coming)

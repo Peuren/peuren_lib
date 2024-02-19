@@ -1,6 +1,6 @@
 CarKeys = {
     Give = function(veh, plate)
-        exports[Config.VehicleKeysResource]:givePlayerKeys(plate)
+        exports[Config.VehicleKeysResource]:GiveKey(plate)
     end
 }
 
