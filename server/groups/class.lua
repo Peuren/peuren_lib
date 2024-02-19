@@ -88,7 +88,7 @@ Groups = {
             if args ~= nil then
                 TriggerClientEvent(name, v.source, args, v.owner)
             else 
-                TriggerClientEvent(name, v.source, v.owner)
+                TriggerClientEvent(name, v.source, nil, v.owner)
             end
         end
     end,
