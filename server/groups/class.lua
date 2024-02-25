@@ -37,14 +37,13 @@ Groups = {
     end,
 
     ---Add player to a group
-    ---@param source number
     ---@param id string
-    AddPlayer = function(source, id)
+    ---@param source number
+    AddPlayer = function(id, source)
         local user = Core.Framework.GetIdentifier(source)
-
         if not Groups.Data[id] then return end
 
-        Groups.Data[id].players[user] = { 
+        Groups.Data[id].players[#Groups.Data[id].players + 1] = { 
             name = Core.Framework.GetCharName(source),
             source = source,
             id = user 
@@ -59,7 +58,11 @@ Groups = {
 
         if not Groups.Data[id] then return end
 
-        Groups.Data[id].players[user] = nil
+        for k,v in pairs(Groups.Data[id].players) do
+            if v.id == user then 
+                Groups.Data[id].players[k] = nil
+            end
+        end
     end,
 
     ---Checks if a player is not in a group already
@@ -84,12 +87,8 @@ Groups = {
         if not Groups.Data[id] then return end
         local users = Groups.Get(id).players
 
-        for _, v in pairs(users) do 
-            if args ~= nil then
-                TriggerClientEvent(name, v.source, args, v.owner)
-            else 
-                TriggerClientEvent(name, v.source, nil, v.owner)
-            end
+        for _, v in pairs(users) do
+            TriggerClientEvent(name, v.source, args, v.owner)    
         end
     end,
 
