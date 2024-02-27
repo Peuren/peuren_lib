@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'PEUREN DEVELOPMENT - peuren.tebex.io'
-version '0.9'
+version '0.0.9'
 lua54 'yes'
 
 client_scripts { 'client/groups/**', "client/inventory/carryItems.lua", 'client/main.lua', "client/menu/skillMenu.lua" }
