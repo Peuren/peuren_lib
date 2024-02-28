@@ -8,6 +8,18 @@ Target = {
         return data
     end,
     AddEntity = function(entities, options, distance)
+        if type(entities) == 'table' then
+            for k,v in pairs(entities) do 
+                if not DoesEntityExist(v) then
+                    entities[k] = NetworkGetEntityFromNetworkId(v)
+                end
+            end
+        else 
+            if not DoesEntityExist(entities) then 
+                entities = NetworkGetEntityFromNetworkId(entities)
+            end
+        end
+
         local tOptions = {}
         for k, v in pairs(options) do
             tOptions[#tOptions + 1] = {
@@ -82,6 +94,18 @@ Target = {
         exports[Config.TargetResource]:RemoveZone(data.name)
     end,
     RemoveEntityZone = function(entities, names)
+        if type(entities) == 'table' then
+            for k,v in pairs(entities) do 
+                if not DoesEntityExist(v) then
+                    entities[k] = NetworkGetEntityFromNetworkId(v)
+                end
+            end
+        else 
+            if not DoesEntityExist(entities) then 
+                entities = NetworkGetEntityFromNetworkId(entities)
+            end
+        end
+        
         exports[Config.TargetResource]:RemoveTargetEntity(entities, names)
     end,
     RemoveBone = function(bones, names)
