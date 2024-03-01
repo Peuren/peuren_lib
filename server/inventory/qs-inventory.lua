@@ -27,9 +27,10 @@ Inventory = {
         end
         return formattedItems
     end,
-    HasPlayerItem = function(source, item, count)        
+    HasPlayerItem = function(source, item, count)     
         local amount = exports[Config.InventoryResource]:GetItemTotalAmount(source, item)
-        if not amount then return end
+        if not amount then return false end
+        if not count and amount then return true end
         return count <= amount
     end,
     RegisterUsableItem = function(item, callback)
