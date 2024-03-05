@@ -7,14 +7,16 @@ function OpenSkillMenu()
 
     local options = {}
 
+    local locale = getLocales()[GetCurrentResourceName()]
+
     for k, v in pairs(skillData) do
         options[#options+1] = {
-            title = Core.Locale(v.locale),
-            description = Core.Locale('skill_menu_description'):format(v.xp, v.level),
+            title = locale[v.locale],
+            description = locale['skill_menu_description']:format(v.xp, v.level),
         }
     end
 
-    Core.Menu(Core.Locale("skill_menu_title"), options)
+    Core.Menu(locale["skill_menu_title"], options)
 end
 
 if Config.SkillMenu.Command then
