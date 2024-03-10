@@ -21,15 +21,19 @@ Framework = {
     GetJobPlayerCount = function(jobs)
         local count = 0
 
-        for id in pairs(QBCore.Functions.GetPlayers()) do 
+        for id, _ in pairs(QBCore.Functions.GetPlayers()) do 
             local player = QBCore.Functions.GetPlayer(id)
             if not player then goto continue end
 
+            local hasJob = false
+
             for _, job in pairs(jobs) do
                 if player.PlayerData.job.type == job or player.PlayerData.job.name == job then 
-                    count += 1
+                    hasJob = true
                 end
             end
+
+            if hasJob then count += 1 end
             :: continue ::
         end
         return count
