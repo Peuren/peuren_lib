@@ -1,6 +1,7 @@
 Inventory = {
     AddItem = function(source, item, amount, metadata) 
         local Player = QBCore.Functions.GetPlayer(source)
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], 'add', amount)
         return Player.Functions.AddItem(item, amount, nil, metadata)
     end,
     RemoveItem = function(source, item, amount, metadata)
@@ -12,6 +13,7 @@ Inventory = {
                 if Utils.CompareTables(v.info, metadata) then slot = v.slot end
             end
         end
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], 'remove', amount)
         return Player.Functions.RemoveItem(item, amount, slot)
     end,
     GetItem = function(source, item, metadata)
