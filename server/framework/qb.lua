@@ -23,8 +23,8 @@ Framework = {
         local count = 0
 
         for _, job in pairs(jobs) do 
-            for id, _ in pairs(players) do
-                local player = QBCore.Functions.GetPlayer(id)
+            for id, id2 in pairs(players) do
+                local player = QBCore.Functions.GetPlayer(id or id2)
                 if player.PlayerData.job.name == job then
                     if player.PlayerData.job.onduty then
                         count += 1
