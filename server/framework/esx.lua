@@ -9,6 +9,11 @@ Framework = {
         if not xPlayer then return end
         return xPlayer.getIdentifier()
     end,
+    GetIdentifierID = function(identifier)
+        local player = ESX.GetPlayerFromIdentifier(identifier)
+        if not player then return false end
+        return player.playerId
+    end,
     GetCharName = function(player)
         local xPlayer = ESX.GetPlayerFromId(player)
         if not xPlayer then return end

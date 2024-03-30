@@ -4,7 +4,14 @@ Inventory = {
         return QBCore.Shared.Items[item].label
     end,
     AddCarriableItem = CarryItems.AddCarriableItem,
-    RemoveCarriableItem = CarryItems.RemoveCarriableItem
+    RemoveCarriableItem = CarryItems.RemoveCarriableItem,
+    OpenStash = function(stashName, maxWeight, slots)
+        TriggerEvent("inventory:client:SetCurrentStash", stashName)
+        TriggerServerEvent("inventory:server:OpenInventory", "stash", stashName, {
+            maxweight = maxWeight,
+            slots = slots,
+        })
+    end
 }
 
 RegisterNetEvent('QBCore:Player:SetPlayerData', function(PlayerData)
