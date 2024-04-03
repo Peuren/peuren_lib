@@ -9,11 +9,6 @@ Framework = {
         if not Player then return end
         return Player.PlayerData.citizenid
     end,
-    GetIdentifierID = function(identifier)
-        local Player = QBCore.Functions.GetPlayerByCitizenId(identifier)
-        if not Player then return false end
-        return Player.PlayerData.source
-    end,
     GetCharName = function(player)
         local Player = QBCore.Functions.GetPlayer(player)
         if not Player then return end
@@ -28,13 +23,17 @@ Framework = {
         local count = 0
 
         for _, job in pairs(jobs) do 
-            for id, id2 in pairs(players) do
-                local player = QBCore.Functions.GetPlayer(id or id2)
+            for id, _ in pairs(players) do
+                local player = QBCore.Functions.GetPlayer(id)
+                if not player then goto continue end
+
                 if player.PlayerData.job.name == job then
                     if player.PlayerData.job.onduty then
                         count += 1
                     end
                 end
+
+                :: continue ::
             end
         end 
         
