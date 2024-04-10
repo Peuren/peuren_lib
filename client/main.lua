@@ -30,6 +30,7 @@ Core.Menu = LoadModule("menu", Config.Menu)
 Core.Fuel = LoadModule("fuel", Config.Fuel)
 Core.Poly = LoadModule("poly", Config.Poly)
 Core.TextUI = LoadModule("textui", Config.TextUI)
+Core.Clothing = LoadModule("clothing", Config.Clothing)
 Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Locale = locale

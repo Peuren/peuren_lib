@@ -40,24 +40,6 @@ Poly = {
         return id
     end,
 
-    AddPolyZone = function(points, cb)
-        local id = "peuren_lib:"..math.random(100, 999)
-
-        if Poly.Data[id] then return Poly.AddPolyZone(points, cb) end
-
-        Poly.Data[id] = lib.zones.poly({
-            points = points,
-            debug = Config.Debug,
-            onEnter = function(self)
-                cb(true, self)
-            end,
-            onExit = function(self)
-                cb(false, self)
-            end,
-        })
-        return id
-    end,
-
     RemoveZone = function(id)
         if not id then return end 
         if not Poly.Data[id] then return end
