@@ -91,7 +91,12 @@ Framework = {
             if not Player then return end
             return Player.PlayerData.job.grade.name
         end
-    }
+    },
+
+    lib.callback.register('peuren_lib:SpawnVehicle', function(player, model, pos)
+        local netId, entity = qbx.spawnVehicle({ model = model, spawnSource = pos })
+        return netId
+    end)
 }
 
 return Framework

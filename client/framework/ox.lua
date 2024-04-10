@@ -1,5 +1,5 @@
 Framework = {
-    PlayerLoaded = exports.qbx_core:GetPlayerData() ~= nil,
+    PlayerLoaded = player ~= nil,
     Callbacks = {
         Trigger = function(name, ...)
             return lib.callback.await(name, false, ...)
@@ -10,12 +10,12 @@ Framework = {
     },
 
     SpawnVehicle = function(model, pos, cb, networked)
-        local result = lib.callback.await('peuren_lib:SpawnVehicle', false, model, pos)
+        local result = lib.callback.await('peuren_lib:SpawnVehicle', false, model, pos, 90)
         cb(NetToVeh(result))
     end
 }
 
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+AddEventHandler('esx:onPlayerSpawn', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
     Framework.PlayerLoaded = true
 end)

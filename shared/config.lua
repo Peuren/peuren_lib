@@ -4,7 +4,7 @@ Config.Debug = false -- Adds additional prints and enables all other resource de
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
-Config.Framework = "qb" -- esx / qb / qbx - The framework your server is based on
+Config.Framework = "qb" -- esx / qb / qbx (Uncomment qbx_core export in fxmanifest.lua file) / ox (Uncomment ox_core imports in fxmanifest.lua file) - The framework your server is based on
 Config.FrameworkResource = "qb-core" -- Framework resource name
 
 Config.SQLConnector = "oxmysql" -- oxmysql / mysql-async  / ghmattimysql - The SQL connector resource that you're using.
