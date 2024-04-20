@@ -49,4 +49,4 @@ Config.SkillMenu = { -- Configuration for skill menu.
     Command = "skills" -- The comand which opens the skill menu. Set this to false to disable it. Skill menu can be also opened by using exports["peuren_lib"]:OpenSkillMenu()
 }
 
-Config.Clothing = 'qb-clothing'
+Config.Clothing = 'qb-clothing' -- esx_skin / fivem-appearance / illenium-appearance / ox_appearance / qb-clothing
