@@ -56,9 +56,9 @@ CarryItems = {
         TriggerEvent('peuren_lib:RemovedItem', itemName)
     end,
 
-    UpdateAnimation = function()
+    UpdateAnimation = function(override)
         if not Config.CarryItemsEnabled then return end
-        if CarryItems.Current.item then return end
+        if not override and CarryItems.Current.item then return end
 
         if CarryItems.Current.prop then 
             DeleteEntity(CarryItems.Current.prop)
@@ -151,4 +151,8 @@ Citizen.CreateThread(function()
     end
 
     CarryItems.UpdateAnimation()
+end)
+
+exports('UpdateCarry', function()
+    CarryItems.UpdateAnimation(true)
 end)
