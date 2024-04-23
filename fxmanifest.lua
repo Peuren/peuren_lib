@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'PEUREN DEVELOPMENT - peuren.tebex.io'
-version '0.1.0'
+version '0.1.1'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -23,7 +23,7 @@ shared_scripts {
   -- '@PolyZone/CircleZone.lua', --Remove the two -- if you're using polyzone in your server
   -- '@PolyZone/ComboZone.lua', --Remove the two -- if you're using polyzone in your server
 
-  '@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your server
+  -- '@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your server
   -- '@qbx_core/modules/lib.lua', --Remove the two -- if you're using qbx_core in your server
   
   'utils/**/*.lua', 
