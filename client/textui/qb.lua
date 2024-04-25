@@ -1,9 +1,15 @@
 TextUI = {
+    Text = "",
+    
     Draw = function(text, pos)
-        exports['qb-core']:DrawText(text, 'right')
+        if text ~= TextUI.Text then 
+            TextUI.Text = text     
+            exports[Config.TextUIResource]:DrawText(text, 'right')
+        end
     end,
     Stop = function()
-        exports['qb-core']:HideText()
+        TextUI.Text = ""
+        exports[Config.TextUIResource]:HideText()
     end
 }
 
