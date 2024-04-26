@@ -20,7 +20,7 @@ Config.ProgessBar = 'ox_lib' -- ox_lib / qb - The progress bar system that you'r
 Config.Menu = 'ox_lib' -- ps-ui / ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb / nh-context / esx_menu_default / esx_context - The menu system that you're using.
 Config.MenuResource = 'ox_lib'
 
-Config.Input = 'ox_lib' -- ps-ui / ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb-input / nh-keyboard - The input system that you're using
+Config.Input = 'ox_lib' -- okokTextUI / ps-ui / ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb-input / nh-keyboard - The input system that you're using
 Config.InputResource = 'ox_lib' -- The input system folder name that you're using
 
 Config.TextUI = "ox_lib" -- ps-ui / ox-lib (Uncomment ox_lib export in fxmanifest.lua file) / qb - The TextUI system that you're using
