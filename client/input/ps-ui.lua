@@ -12,10 +12,12 @@ Input = function(header, options)
         }
     end
 
-    return exports[Config.InputResource]:Input({
-        header = header,
+    local result = exports[Config.InputResource]:Input({
+        title = header or "Input value",
         inputs = input
     })
+
+    return { amount = result[1] }
 end 
 
 return Input

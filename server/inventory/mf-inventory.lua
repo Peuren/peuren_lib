@@ -32,7 +32,11 @@ Inventory = {
     end,
     HasPlayerItem = function(source, item, count)    
         local id = Framework.GetIdentifier(source) 
-        return exports[Config.InventoryResource]:getInventoryItem(id, item, count)
+        if not id then return end
+        local result = exports[Config.InventoryResource]:getInventoryItem(id, item, count)
+        if not result then return false end
+        if not count and result then return true end
+        return count <= result.count
     end,
     RegisterUsableItem = function(item, callback)
         ESX.RegisterUsableItem(item, callback)
