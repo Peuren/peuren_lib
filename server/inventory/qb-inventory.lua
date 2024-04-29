@@ -22,9 +22,9 @@ Inventory = {
             local item = Player.Functions.GetItemByName(item)
             if not item then return nil end
             return {
-                item = itemData.name,
-                count = itemData.amount,
-                metadata = itemData.info,
+                item = item.name,
+                count = item.amount,
+                metadata = item.info,
             }
         else
             local items = Player.Functions.GetItemsByName(item)

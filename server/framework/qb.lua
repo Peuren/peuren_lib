@@ -9,6 +9,11 @@ Framework = {
         if not Player then return end
         return Player.PlayerData.citizenid
     end,
+    GetIdentifierID = function(identifier)
+        local player = QBCore.Functions.GetPlayerByCitizenId(identifier)
+        if not player then return false end
+        return player.PlayerData.source
+    end,
     GetCharName = function(player)
         local Player = QBCore.Functions.GetPlayer(player)
         if not Player then return end

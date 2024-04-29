@@ -1,5 +1,6 @@
 Poly = {
     Data = {},
+    ResourceZones = {},
 
     AddBoxZone = function(pos, height, width, heading, cb)
         local id = "peuren_lib:"..math.random(100, 999)
@@ -17,6 +18,9 @@ Poly = {
         Poly.Data[id]:onPointInOut(PolyZone.getPlayerPosition, function(isPointInside, point)
             cb(isPointInside, point)
         end)
+
+        if not Poly.ResourceZones[GetInvokingResource()] then Poly.ResourceZones[GetInvokingResource()] = {} end
+        Poly.ResourceZones[GetInvokingResource()][id] = id
 
         return id
     end, 
@@ -36,6 +40,9 @@ Poly = {
             cb(isPointInside, point)
         end)
 
+        if not Poly.ResourceZones[GetInvokingResource()] then Poly.ResourceZones[GetInvokingResource()] = {} end
+        Poly.ResourceZones[GetInvokingResource()][id] = id
+
         return id
     end,
 
@@ -43,7 +50,19 @@ Poly = {
         if not id then return end 
         if not Poly.Data[id] then return end 
         Poly.Data[id]:destroy()
+
+        if Poly.ResourceZones[GetInvokingResource()] then 
+            Poly.ResourceZones[GetInvokingResource()][id] = nil
+        end
     end,
 }
+
+RegisterNetEvent("onResourceStop", function(resName)
+    if Poly.ResourceZones[resName] then
+        for k, v in pairs(Poly.ResourceZones[resName]) do
+            Poly.Data[k]:destroy() 
+        end
+    end
+end)
 
 return Poly
