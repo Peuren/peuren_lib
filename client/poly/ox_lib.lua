@@ -1,5 +1,6 @@
 Poly = {
     Data = {},
+    ResourceZones = {},
 
     AddBoxZone = function(pos, height, width, heading, cb)
         local id = "peuren_lib:"..math.random(100, 999)
