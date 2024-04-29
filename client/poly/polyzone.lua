@@ -46,6 +46,26 @@ Poly = {
         return id
     end,
 
+    AddPolyZone = function(points, cb)
+        local id = "peuren_lib:"..math.random(100, 999)
+
+        if Poly.Data[id] then return Poly.AddPolyZone(points, cb) end
+
+        Poly.Data[id] = PolyZone:Create(points, {
+            name = id,
+            debugGrid = Config.Debug,
+        })
+
+        Poly.Data[id]:onPointInOut(PolyZone.getPlayerPosition, function(isPointInside, point)
+            cb(isPointInside, point)
+        end)
+
+        if not Poly.ResourceZones[GetInvokingResource()] then Poly.ResourceZones[GetInvokingResource()] = {} end
+        Poly.ResourceZones[GetInvokingResource()][id] = id
+
+        return id
+    end,
+
     RemoveZone = function(id)
         if not id then return end 
         if not Poly.Data[id] then return end 
