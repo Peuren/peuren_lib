@@ -17,6 +17,11 @@ Framework = {
         if not Player then return end
         return Player.PlayerData.citizenid
     end,
+    GetIdentifierID = function(identifier)
+        local player = exports.qbx_core:GetPlayerByCitizenId(identifier)
+        if not player then return false end
+        return player.PlayerData.source
+    end,
     GetCharName = function(player)
         local Player = exports.qbx_core:GetPlayer(player)
         if not Player then return end
