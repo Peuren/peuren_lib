@@ -47,4 +47,9 @@ Core.Framework.RegisterCallback("peuren_lib:GetPlayerInventory", function(player
     cb(Inventory.GetItems(player))
 end)
 
+Core.Framework.RegisterCallback("peuren_lib:inventory:RegisterStash", function(player, cb, data)
+    exports[Config.InventoryResource]:RegisterStash(data.stashName, data.stashName, data.slots, data.weight)
+    cb(true)
+end)
+
 return Inventory

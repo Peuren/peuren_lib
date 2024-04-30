@@ -4,7 +4,16 @@ Inventory = {
         return exports[Config.InventoryResource]:Items(item).label
     end,
     AddCarriableItem = CarryItems.AddCarriableItem,
-    RemoveCarriableItem = CarryItems.RemoveCarriableItem
+    RemoveCarriableItem = CarryItems.RemoveCarriableItem,
+    OpenStash = function(stashName, maxWeight, slots)
+        local response = Core.Framework.Callbacks.Trigger("peuren_lib:inventory:RegisterStash", {
+            stashName = stashName,
+            slots = slots,
+            weight = maxWeight,
+        })
+
+        exports.ox_inventory:openInventory('stash', {id = stashName})
+    end
 }
 
 AddEventHandler('ox_inventory:itemCount', function(itemName, totalCount) 
@@ -16,5 +25,7 @@ AddEventHandler('ox_inventory:itemCount', function(itemName, totalCount)
 
     CarryItems.UpdateAnimation()
 end)
+
+
 
 return Inventory

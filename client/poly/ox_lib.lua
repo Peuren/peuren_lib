@@ -56,9 +56,14 @@ Poly = {
 
         if Poly.Data[id] then return Poly.AddPolyZone(points, cb) end
 
+        for k, v in pairs(points) do
+            points[k] = vec3(v.x, v.y, 0.0)
+        end
+
         Poly.Data[id] = lib.zones.poly({
             points = points,
             debug = Config.Debug,
+            thickness = 500,
             onEnter = function(self)
                 cb(true, self)
             end,
@@ -88,7 +93,7 @@ Poly = {
 RegisterNetEvent("onResourceStop", function(resName)
     if Poly.ResourceZones[resName] then
         for k, v in pairs(Poly.ResourceZones[resName]) do
-            Poly.Data[k]:destroy() 
+            Poly.Data[k]:remove() 
         end
     end
 end)
