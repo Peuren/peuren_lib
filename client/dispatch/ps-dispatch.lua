@@ -10,6 +10,7 @@ Dispatch = function(data)
             sprite = data.sprite,
             color = data.color,
             scale = data.scale,
+            length = data.time / 60,
             flash = true
         },
         jobs = data.police_jobs
