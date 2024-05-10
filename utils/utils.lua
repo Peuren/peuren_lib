@@ -12,5 +12,10 @@ Utils = {
         end
         
         return true
+    end,
+
+    Print = function(...)
+        if not Config.Debug then return end
+        print(...)
     end
 }
