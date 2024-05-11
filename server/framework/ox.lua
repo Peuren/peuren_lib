@@ -18,7 +18,7 @@ Framework = {
         return xPlayer.userId
     end,
     GetIdentifierID = function(identifier)
-        local player = Ox.GetPlayerByFilter({userId: identifier})
+        local player = Ox.GetPlayerByFilter({userId = identifier})
         if not player then return false end
         return player.source
     end,
