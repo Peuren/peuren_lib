@@ -43,7 +43,7 @@ Target = {
                 items = v.item,
                 canInteract = v.canInteract,
                 onSelect = TransformOnSelect(v.onSelect),
-                bones = bones,
+                bones = v.bones,
                 distance = distance,
                 groups = v.jobs,
             }
