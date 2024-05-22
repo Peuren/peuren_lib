@@ -39,6 +39,8 @@ Inventory = {
             QBCore.Functions.CreateUseableItem(item, callback)
         elseif Config.Framework == "esx" then
             ESX.RegisterUsableItem(item, callback)
+        elseif Config.Framework == "qbx" then
+            exports.qbx_core:CreateUseableItem(item, callback)
         end
     end
 }
