@@ -80,10 +80,11 @@ Target = {
                 groups = v.jobs,
             }
         end
+
         return exports[Config.TargetResource]:addBoxZone({
             name = boxData.name,
-            coords = boxData.coords,
-            size = boxData.size,
+            coords = vector3(boxData.coords.x, boxData.coords.y, boxData.coords.z + boxData.size.z / 2),
+            size = vector3(boxData.size.y, boxData.size.x, boxData.size.z),
             rotation = boxData.heading,
             options = tOptions,
             debug = Config.Debug,
