@@ -32,7 +32,7 @@ Config.PolyResource = "ox_lib" -- The Polyzone system folder name that you're us
 Config.Notifications = "ox_lib" -- ps-ui / ox_lib (Uncomment ox_lib export in fxmanifest.lua file) / qb / esx / okok / mythic - The notification system that your're using
 Config.NotificationsResource = "ox_lib" -- The notification system folder name that you're using
 
-Config.WeatherSync = 'qb-weathersync'-- qb-weathersync / cd_easytime - The weathersync system thet you're using
+Config.WeatherSync = 'qb-weathersync'-- renewed-weathersync / qb-weathersync / cd_easytime - The weathersync system thet you're using
 
 Config.Dispatch = 'cd_dispatch' -- origen_police / rcore_dispatch / cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
 Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder name
