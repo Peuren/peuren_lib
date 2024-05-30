@@ -40,7 +40,7 @@ Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder n
 Config.Fuel = 'LegacyFuel' -- okokGasStation / LegacyFuel / ox_fuel / lj-fuel / ti-fuel / ND_fuel / ps-fuel / esx-sna-fuel / cdn-fuel / FRFuel -- The fuel system that you're using
 Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
 
-Config.VehicleKeys = 'qb-vehiclekeys' -- okokGarage / qs-vehiclekeys / wasabi_carlock / cd_garage / t1ger_keys / F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
+Config.VehicleKeys = 'qb-vehiclekeys' -- mk_vehiclekeys / okokGarage / qs-vehiclekeys / wasabi_carlock / cd_garage / t1ger_keys / F_RealCarKeysSystem / fivecode_carkeys / qb-vehiclekeys / stasiek_vehiclekeys / ti_vehicleKeys / vehicles_keys / xd_locksystem / -- The vehicle key system that you're using
 Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource folder name
 
 Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled for supported inventores esx/qb/ox_inventory (QS-INVENTORY support is coming)
@@ -49,4 +49,4 @@ Config.SkillMenu = { -- Configuration for skill menu.
     Command = "skills" -- The comand which opens the skill menu. Set this to false to disable it. Skill menu can be also opened by using exports["peuren_lib"]:OpenSkillMenu()
 }
 
-Config.Clothing = 'qb-clothing' -- esx_skin / fivem-appearance / illenium-appearance / ox_appearance / qb-clothing
+Config.Clothing = 'qb-clothing' -- tgiann-clothing / esx_skin / fivem-appearance / illenium-appearance / ox_appearance / qb-clothing
