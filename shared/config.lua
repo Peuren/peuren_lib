@@ -5,6 +5,7 @@ Config.Language = 'en' -- Language file name, this means, that it will only load
                        -- if this is an invalid locale name on a resource it will default to english
 
 Config.Framework = "qb" -- esx / qb / qbx (Uncomment qbx_core export in fxmanifest.lua file) / ox (Uncomment ox_core imports in fxmanifest.lua file) - The framework your server is based on
+Config.IsOldESX = false --This option is needed if you are running an older versions of ESX
 Config.FrameworkResource = "qb-core" -- Framework resource name
 
 Config.SQLConnector = "oxmysql" -- oxmysql / mysql-async  / ghmattimysql - The SQL connector resource that you're using.

@@ -1,4 +1,12 @@
-ESX = exports[Config.FrameworkResource]:getSharedObject()
+ESX = nil
+
+if Config.IsOldESX then 
+    TriggerEvent('esx:getSharedObject', function(obj) 
+        ESX = obj 
+    end)
+else 
+    ESX = exports[Config.FrameworkResource]:getSharedObject()
+end
 
 Framework = {
     RegisterCallback = function(name, cb, ...)

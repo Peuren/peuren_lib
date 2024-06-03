@@ -1,4 +1,17 @@
-ESX = exports[Config.FrameworkResource]:getSharedObject()
+ESX = nil
+
+if Config.IsOldESX then 
+    CreateThread(function()
+        while ESX == nil do
+            TriggerEvent('esx:getSharedObject', function(obj) 
+                ESX = obj 
+            end)
+            Citizen.Wait(0)
+        end
+    end)
+else 
+    ESX = exports[Config.FrameworkResource]:getSharedObject()
+end
 
 Framework = {
     PlayerLoaded = ESX.IsPlayerLoaded(),
