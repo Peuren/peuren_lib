@@ -5,7 +5,7 @@ Config.Language = 'en' -- Language file name, this means, that it will only load
                        -- if this is an invalid locale name on a resource it will default to english
 
 Config.Framework = "qb" -- esx / qb / qbx (Uncomment qbx_core export in fxmanifest.lua file) / ox (Uncomment ox_core imports in fxmanifest.lua file) - The framework your server is based on
-Config.IsOldESX = false --This option is needed if you are running an older versions of ESX
+Config.IsOldESX = false --This option is needed if you are running an older version of ESX
 Config.FrameworkResource = "qb-core" -- Framework resource name
 
 Config.SQLConnector = "oxmysql" -- oxmysql / mysql-async  / ghmattimysql - The SQL connector resource that you're using.
@@ -35,7 +35,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
 
 Config.WeatherSync = 'qb-weathersync'-- renewed-weathersync / qb-weathersync / cd_easytime - The weathersync system thet you're using
 
-Config.Dispatch = 'cd_dispatch' -- origen_police / rcore_dispatch / cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
+Config.Dispatch = 'cd_dispatch' -- fea-dispatch / origen_police / rcore_dispatch / cd_dispatch / core_dispatch / default / outwalter / ps-dispatch / qs-dispatch - The dispatch system that you are using for alerts
 Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder name
 
 Config.Fuel = 'LegacyFuel' -- okokGasStation / LegacyFuel / ox_fuel / lj-fuel / ti-fuel / ND_fuel / ps-fuel / esx-sna-fuel / cdn-fuel / FRFuel -- The fuel system that you're using
