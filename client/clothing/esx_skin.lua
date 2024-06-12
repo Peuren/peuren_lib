@@ -1,10 +1,11 @@
 Clothing = {
     Set = function(outfit)
-        if not outfit then return end 
+        if not outfit then return end
 
-        TriggerEvent('skinchanger:getSkin', function(skin)
-            TriggerEvent('skinchanger:loadSkin', outfit)
+        TriggerEvent('skinchanger:getSkin', function(skin)           
+            TriggerEvent('skinchanger:loadClothes', skin, outfit)
         end)
+
     end,
 
     Reset = function()

@@ -1,5 +1,5 @@
 Dispatch = function(data)
-    TriggerEvent('fae-dispatch:alert', data.dispatch_code.." - "..data.message, data.message, data.pos.xyz, exports[Config.DispatchResource]:CoordToString(data.pos.xyz))
+    TriggerClientEvent('fea-dispatch:peuren:alert', -1, data)
 end 
 
 return Dispatch
