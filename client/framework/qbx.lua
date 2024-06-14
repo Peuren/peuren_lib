@@ -5,7 +5,7 @@ Framework = {
             return lib.callback.await(name, false, ...)
         end,
         TriggerAsync = function(name, cb, ...)
-            lib.callback(name, false, cb, ...)
+            cb(lib.callback.await(name, false, ...))
         end
     },
 
