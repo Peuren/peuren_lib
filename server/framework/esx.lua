@@ -77,7 +77,7 @@ Framework = {
 
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end
-            return xPlayer.getAccount(account).balance
+            return xPlayer.getAccount(account).money
         end,
         Remove = function(player, amount, account)
             if account ~= "cash" and account ~= "bank" and account ~= "black_money" then
