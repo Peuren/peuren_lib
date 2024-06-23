@@ -59,8 +59,8 @@ Groups = {
         if not Groups.Data[id] then return end
 
         for k,v in pairs(Groups.Data[id].players) do
-            if v.id == user then 
-                Groups.Data[id].players[k] = nil
+            if v.id == user then
+                table.remove(Groups.Data[id].players, k)
             end
         end
     end,
