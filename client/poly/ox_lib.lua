@@ -63,7 +63,7 @@ Poly = {
         Poly.Data[id] = lib.zones.poly({
             points = points,
             debug = Config.Debug,
-            thickness = 500,
+            thickness = 2000,
             onEnter = function(self)
                 cb(true, self)
             end,
