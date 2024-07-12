@@ -1,7 +1,8 @@
 Dispatch = function(data)
     for _, job in pairs(data.police_jobs) do
-        TriggerEvent("core_dispatch:addMessage", 
-            data.dispatch_code.." | "..data.message,
+        exports[Config.DispatchResource]:addCall(
+            data.dispatch_code,
+            data.message,
             {},
             { data.pos.x, data.pos.y, data.pos.z },
             job,
@@ -9,7 +10,7 @@ Dispatch = function(data)
             data.sprite,
             data.color,
             true
-        ) 
+        )
     end
 end 
 
