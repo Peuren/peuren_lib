@@ -11,7 +11,7 @@ Inventory = {
 }
 
 if Config.Framework == 'esx' then 
-    AddEventHandler('esx:addInventoryItem', function(itemName, totalCount) 
+    RegisterNetEvent('esx:addInventoryItem', function(itemName, totalCount) 
         if totalCount > 0 then
             CarryItems.ItemAdded(itemName)
         else
@@ -21,7 +21,7 @@ if Config.Framework == 'esx' then
         CarryItems.UpdateAnimation()
     end)
 
-    AddEventHandler('esx:removeInventoryItem', function(itemName, totalCount) 
+    RegisterNetEvent('esx:removeInventoryItem', function(itemName, totalCount) 
         if totalCount > 0 then
             CarryItems.ItemAdded(itemName)
         else

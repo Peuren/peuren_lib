@@ -92,6 +92,40 @@ Target = {
             drawSprite = Config.Debug
         })
     end,
+    AddPlayer = function(options, distance)
+        local tOptions = {}
+        for k, v in pairs(options) do
+            tOptions[#tOptions + 1] = {
+                name = v.name,
+                icon = v.icon,
+                label = v.label,
+                items = v.item,
+                canInteract = v.canInteract,
+                onSelect = TransformOnSelect(v.onSelect),
+                distance = distance,
+                groups = v.jobs,
+            }
+        end
+
+        return exports[Config.TargetResource]:addGlobalPlayer(tOptions)
+    end,
+    AddVehicle = function(options, distance)
+        local tOptions = {}
+        for k, v in pairs(options) do
+            tOptions[#tOptions + 1] = {
+                name = v.name,
+                icon = v.icon,
+                label = v.label,
+                items = v.item,
+                canInteract = v.canInteract,
+                onSelect = TransformOnSelect(v.onSelect),
+                distance = distance,
+                groups = v.jobs,
+            }
+        end
+
+        return exports[Config.TargetResource]:addGlobalVehicle(tOptions)
+    end,
     RemoveZone = function(data)
         exports[Config.TargetResource]:removeZone(data)
     end,
@@ -111,6 +145,12 @@ Target = {
     end,
     RemoveBone = function(bones, names)
         exports[Config.TargetResource]:removeGlobalVehicle(bones)
+    end,
+    RemovePlayer = function(names) 
+        exports[Config.TargetResource]:removeGlobalPlayer(names)
+    end,
+    RemoveVehicle = function(names)
+        exports[Config.TargetResource]:removeGlobalVehicle(names)
     end
 }
 

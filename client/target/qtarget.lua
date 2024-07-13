@@ -95,6 +95,42 @@ Target = {
             distance = distance
         })
     end,
+    AddPlayer = function(options, distance)
+        local tOptions = {}
+        for k, v in pairs(options) do
+            tOptions[#tOptions + 1] = {
+                icon = v.icon,
+                label = v.label,
+                item = v.item,
+                canInteract = v.canInteract,
+                action = v.onSelect,
+                job = Target.FormatJobs(v.jobs),
+            }
+        end
+
+        return exports[Config.TargetResource]:AddGlobalPlayer({
+            options = tOptions,
+            distance = distance
+        })
+    end,
+    AddVehicle = function(options, distance)
+        local tOptions = {}
+        for k, v in pairs(options) do
+            tOptions[#tOptions + 1] = {
+                icon = v.icon,
+                label = v.label,
+                item = v.item,
+                canInteract = v.canInteract,
+                action = v.onSelect,
+                job = Target.FormatJobs(v.jobs),
+            }
+        end
+
+        return exports[Config.TargetResource]:AddGlobalVehicle({
+            options = tOptions,
+            distance = distance
+        })
+    end,
     RemoveZone = function(data)
         exports[Config.TargetResource]:RemoveZone(data.name)
     end,
@@ -115,6 +151,12 @@ Target = {
     end,
     RemoveBone = function(bones, names)
         exports[Config.TargetResource]:RemoveTargetBone(bones, names)
+    end,
+    RemovePlayer = function(names) 
+        exports[Config.TargetResource]:RemoveGlobalPlayer(names)
+    end,
+    RemoveVehicle = function(names)
+        exports[Config.TargetResource]:RemoveGlobalVehicle(names)
     end
 }
 
