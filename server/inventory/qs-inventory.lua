@@ -1,9 +1,9 @@
 Inventory = {
     AddItem = function(source, item, amount, metadata) 
-        exports[Config.InventoryResource]:AddItem(source, item, amount, nil, metadata)
+        return exports[Config.InventoryResource]:AddItem(source, item, amount, nil, metadata)
     end,
     RemoveItem = function(source, item, amount, metadata)
-        exports[Config.InventoryResource]:RemoveItem(source, item, amount, nil, metadata)
+        return exports[Config.InventoryResource]:RemoveItem(source, item, amount, nil, metadata)
     end,
     GetItem = function(source, item)
         local amount = exports[Config.InventoryResource]:GetItemTotalAmount(source, item)
