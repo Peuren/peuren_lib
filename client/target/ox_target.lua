@@ -8,12 +8,12 @@ Target = {
     AddEntity = function(entities, options, distance)
         if type(entities) == 'table' then
             for k,v in pairs(entities) do 
-                if not DoesEntityExist(v) then
+                if not DoesEntityExist(v) and NetworkDoesEntityExistWithNetworkId(v) then
                     entities[k] = NetworkGetEntityFromNetworkId(v)
                 end
             end
         else 
-            if not DoesEntityExist(entities) then 
+            if not DoesEntityExist(entities) and NetworkDoesEntityExistWithNetworkId(entities) then 
                 entities = NetworkGetEntityFromNetworkId(entities)
             end
         end
@@ -132,12 +132,12 @@ Target = {
     RemoveEntityZone = function(entities, names)
         if type(entities) == 'table' then
             for k,v in pairs(entities) do 
-                if not DoesEntityExist(v) then
+                if not DoesEntityExist(v) and NetworkDoesEntityExistWithNetworkId(v) then
                     entities[k] = NetworkGetEntityFromNetworkId(v)
                 end
             end
         else 
-            if not DoesEntityExist(entities) then 
+            if not DoesEntityExist(entities) and NetworkDoesEntityExistWithNetworkId(entities) then 
                 entities = NetworkGetEntityFromNetworkId(entities)
             end
         end        
