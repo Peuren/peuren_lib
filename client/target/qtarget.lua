@@ -83,7 +83,8 @@ Target = {
                 job = Target.FormatJobs(v.jobs),
             }
         end
-        return exports[Config.TargetResource]:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
+        
+        local result = exports[Config.TargetResource]:AddBoxZone(boxData.name, boxData.coords, boxData.size.x, boxData.size.y, {
             resource = GetInvokingResource(),
             name = boxData.name,
             heading = boxData.heading,
@@ -94,6 +95,9 @@ Target = {
             options = tOptions,
             distance = distance
         })
+
+        Target.Zones[result.name] = true
+        return result
     end,
     AddPlayer = function(options, distance)
         local tOptions = {}
@@ -132,7 +136,9 @@ Target = {
         })
     end,
     RemoveZone = function(data)
+        if not Target.Zones[data.name] then return end
         exports[Config.TargetResource]:RemoveZone(data.name)
+        Target.Zones[data.name] = nil
     end,
     RemoveEntityZone = function(entities, names)
         if type(entities) == 'table' then

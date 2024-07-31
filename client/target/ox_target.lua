@@ -5,6 +5,8 @@ function TransformOnSelect(callback)
 end
 
 Target = {
+    Zones = {},
+
     AddEntity = function(entities, options, distance)
         if type(entities) == 'table' then
             for k,v in pairs(entities) do 
@@ -81,7 +83,7 @@ Target = {
             }
         end
 
-        return exports[Config.TargetResource]:addBoxZone({
+        local id = exports[Config.TargetResource]:addBoxZone({
             name = boxData.name,
             coords = vector3(boxData.coords.x, boxData.coords.y, boxData.coords.z + boxData.size.z / 2),
             size = vector3(boxData.size.y, boxData.size.x, boxData.size.z),
@@ -91,6 +93,9 @@ Target = {
             resource = GetInvokingResource(),
             drawSprite = Config.Debug
         })
+
+        Target.Zones[id] = true
+        return id
     end,
     AddPlayer = function(options, distance)
         local tOptions = {}
@@ -127,7 +132,9 @@ Target = {
         return exports[Config.TargetResource]:addGlobalVehicle(tOptions)
     end,
     RemoveZone = function(data)
+        if not Target.Zones[data] then return end
         exports[Config.TargetResource]:removeZone(data)
+        Target.Zones[data] = nil
     end,
     RemoveEntityZone = function(entities, names)
         if type(entities) == 'table' then
