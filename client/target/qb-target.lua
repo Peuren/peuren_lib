@@ -1,4 +1,6 @@
 Target = {
+    Zones = {},
+    
     FormatJobs = function(jobs)
         local data = {}
         if not jobs then return end
