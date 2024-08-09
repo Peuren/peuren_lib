@@ -7,7 +7,7 @@ Clothing = {
         local ped = PlayerPedId()
 
         if not Clothing.Appearance then
-            Clothing.Appearance = exports['fivem-appearance']:getPedAppearance(ped)
+            Clothing.Appearance = exports[Config.ClothingResource]:getPedAppearance(ped)
         end
 
         Wait(100)
@@ -20,12 +20,12 @@ Clothing = {
         local accesories = {component_id = 7, texture = outfit.chain_2, drawable = outfit.chain_1}
         local props = {props = {{prop_id = 1, texture = outfit.glasses_2, drawable = outfit.glasses_1}, {prop_id = 2, texture = outfit.ears_2, drawable = outfit.ears_1}}}
         
-        exports['fivem-appearance']:setPedComponents(ped, {torso, undershirt, pants, shoes, accesories, arms, props})
+        exports[Config.ClothingResource]:setPedComponents(ped, {torso, undershirt, pants, shoes, accesories, arms, props})
     end,
 
     Reset = function()
         if Clothing.Appearance then
-            exports['fivem-appearance']:setPedAppearance(PlayerPedId(), Clothing.Appearance)
+            exports[Config.ClothingResource]:setPedAppearance(PlayerPedId(), Clothing.Appearance)
             Clothing.Appearance = nil
         end
     end
