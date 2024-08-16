@@ -49,7 +49,7 @@ Config.TargetResource = 'ox_target' -- The inventory system folder name that you
 Config.ProgessBar = 'ox_lib' -- ox_lib / qb
 --SUPPORTED PROGRESS BAR SCRIPT NAMES TO PUT IN: Config.ProgessBar = ""
 --[[
-    ox_lib
+    ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
     qb
 ]]
 
