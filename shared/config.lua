@@ -144,6 +144,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     esx-sna-fuel
     cdn-fuel
     FRFuel
+    renewed-fuel
 ]]
 
 Config.VehicleKeys = 'qb-vehiclekeys'
@@ -165,6 +166,7 @@ Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource
     vehicles_keys
     xd_locksystem
     tgiann-hotwire
+    dusa_vehiclekeys
 ]]
 
 Config.Clothing = 'qb-clothing'
