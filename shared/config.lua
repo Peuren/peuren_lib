@@ -37,8 +37,8 @@ Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
     codem-inventory
 ]]
 
-Config.Target = "ox_target"
-Config.TargetResource = 'ox_target' -- The inventory system folder name that you're using
+Config.Target = "qb-target"
+Config.TargetResource = 'qb-target' -- The inventory system folder name that you're using
 --SUPPORTED TARGET SCRIPT NAMES TO PUT IN: Config.Target  = ""
 --[[
     qb-target
@@ -145,6 +145,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     cdn-fuel
     FRFuel
     renewed-fuel
+    xFuel
 ]]
 
 Config.VehicleKeys = 'qb-vehiclekeys'
@@ -167,7 +168,7 @@ Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource
     xd_locksystem
     tgiann-hotwire
     dusa_vehiclekeys
-    renewed_vehickekeys
+    renewed_vehiclekeys
 ]]
 
 Config.Clothing = 'qb-clothing'
