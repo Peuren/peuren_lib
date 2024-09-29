@@ -35,6 +35,7 @@ Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
     qs-inventory
     tgiann-inventory
     codem-inventory
+    origen_inventory
 ]]
 
 Config.Target = "qb-target"
@@ -128,6 +129,7 @@ Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder n
     outwalter
     ps-dispatch
     qs-dispatch
+    tk_dispatch
 ]]
 
 Config.Fuel = 'LegacyFuel'
@@ -146,6 +148,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     FRFuel
     renewed-fuel
     xFuel
+    qs-fuelstations
 ]]
 
 Config.VehicleKeys = 'qb-vehiclekeys'
@@ -182,6 +185,7 @@ Config.ClothingResource = 'qb-clothing' -- The clothing system resource folder n
     illenium-appearance
     ox_appearance
     qb-clothing
+    rcore_clothing
 ]]
 
 Config.SkillMenu = { -- Configuration for skill menu.

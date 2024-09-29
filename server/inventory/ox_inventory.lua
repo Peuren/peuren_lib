@@ -1,6 +1,6 @@
 Inventory = {
     AddItem = function(source, item, amount, metadata) 
-        local canCarry = exports.ox_inventory:CanCarryItem(source, item, amount)
+        local canCarry = exports[Config.InventoryResource]:CanCarryItem(source, item, amount)
         if not canCarry then return false end
         return exports[Config.InventoryResource]:AddItem(source, item, amount, metadata)
     end,
