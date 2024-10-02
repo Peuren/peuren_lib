@@ -1,6 +1,7 @@
 Inventory = {
     AddItem = function(source, item, amount, metadata) 
-        if not exports[Config.InventoryResource]:CanCarryItems(source, item, amount)
+        local canCarry = exports[Config.InventoryResource]:CanCarryItems(source, item, amount)
+        if not canCarry then return false end
         return exports[Config.InventoryResource]:AddItem(source, item, amount, nil, nil, metadata)
     end,
     RemoveItem = function(source, item, amount, metadata)
