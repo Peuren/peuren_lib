@@ -1,14 +1,12 @@
 Inventory = {
     AddItem = function(source, item, amount, metadata) 
-        local canCarry = exports[Config.InventoryResource]:CanCarryItems(source, item, amount)
-        if not canCarry then return false end
         return exports[Config.InventoryResource]:AddItem(source, item, amount, nil, nil, metadata)
     end,
     RemoveItem = function(source, item, amount, metadata)
         return exports[Config.InventoryResource]:RemoveItem(source, item, amount, nil, metadata)
     end,
     GetItem = function(source, item, metadata)
-        local itemData = exports.origen_inventory:GetItem(source, item, metadata, true)
+        local itemData = exports[Config.InventoryResource]:GetItem(source, item, metadata, true)
         if not itemData then return nil end
         return {
             item = itemData.name,
