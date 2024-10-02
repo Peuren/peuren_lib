@@ -130,6 +130,7 @@ Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder n
     ps-dispatch
     qs-dispatch
     tk_dispatch
+    redutzu-mdt
 ]]
 
 Config.Fuel = 'LegacyFuel'
