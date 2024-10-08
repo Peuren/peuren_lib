@@ -52,6 +52,10 @@ Framework = {
     end,
     Money = {
         Give = function(player, amount, account)
+            if account == "black_money" then
+                return Inventory.AddItem(player, "black_money", amount)
+            end
+
             if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
@@ -61,6 +65,12 @@ Framework = {
             return Player.Functions.AddMoney(account, amount)
         end,
         Get = function(player, account)
+            if account == "black_money" then
+                local item = Inventory.GetItem(player, "black_money")
+                if not item then return 0 end
+                return item.count
+            end
+
             if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
@@ -70,12 +80,17 @@ Framework = {
             return Player.Functions.GetMoney(account)
         end,
         Remove = function(player, amount, account)
+            if account == "black_money" then
+                return Inventory.RemoveItem(player, "black_money", amount)
+            end
+
             if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
             end
 
             local Player = QBCore.Functions.GetPlayer(player)
             if not Player then return end
+            if Player.Functions.GetMoney(account) < amount then return false end
             return Player.Functions.RemoveMoney(account, amount)
         end,
     },
