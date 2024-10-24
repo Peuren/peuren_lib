@@ -33,7 +33,7 @@ Inventory = {
         local result = exports[Config.InventoryResource]:HasItem(source, item, count)
         if not result then return false end
         if not count and result then return true end
-        return count <= result.count
+        return result
     end,
     RegisterUsableItem = function(item, callback)
         if Config.Framework == "qb" then
