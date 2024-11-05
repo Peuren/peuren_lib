@@ -3,3 +3,6 @@ peuren_lib is a FiveM resource meant to provide cross compatibillity for PeuRen 
 
 ## Documentation
 You can find more information and the installation guide [here](https://peuren-development.gitbook.io/peuren/peuren_lib/installation).
+
+## Our Resources
+Check out our resources [here](https://peuren.dev)
