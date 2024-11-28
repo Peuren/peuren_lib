@@ -3,7 +3,8 @@ Poly = {
     ResourceZones = {},
 
     AddBoxZone = function(pos, height, width, heading, cb)
-        local id = "peuren_lib:"..math.random(100, 999)
+        local invokingResource = GetInvokingResource() or GetCurrentResourceName()
+        local id = "peuren_lib:" .. math.random(100, 999)
 
         if Poly.Data[id] then return Poly.AddBoxZone(pos, height, width, heading, cb) end
 
@@ -20,15 +21,16 @@ Poly = {
             end,
         })
 
-        if not Poly.ResourceZones[GetInvokingResource()] then Poly.ResourceZones[GetInvokingResource()] = {} end
-        Poly.ResourceZones[GetInvokingResource()][id] = id
+        if not Poly.ResourceZones[invokingResource] then Poly.ResourceZones[invokingResource] = {} end
+        Poly.ResourceZones[invokingResource][id] = id
 
 
         return id
-    end, 
+    end,
 
     AddCircularZone = function(pos, radius, cb)
-        local id = "peuren_lib:"..math.random(100, 999)
+        local invokingResource = GetInvokingResource() or GetCurrentResourceName()
+        local id = "peuren_lib:" .. math.random(100, 999)
 
         if Poly.Data[id] then return Poly.AddCircularZone(pos, radius, cb) end
 
@@ -44,15 +46,16 @@ Poly = {
             end,
         })
 
-        if not Poly.ResourceZones[GetInvokingResource()] then Poly.ResourceZones[GetInvokingResource()] = {} end
-        Poly.ResourceZones[GetInvokingResource()][id] = id
+        if not Poly.ResourceZones[invokingResource] then Poly.ResourceZones[invokingResource] = {} end
+        Poly.ResourceZones[invokingResource][id] = id
 
 
         return id
     end,
 
     AddPolyZone = function(points, cb)
-        local id = "peuren_lib:"..math.random(100, 999)
+        local invokingResource = GetInvokingResource() or GetCurrentResourceName()
+        local id = "peuren_lib:" .. math.random(100, 999)
 
         if Poly.Data[id] then return Poly.AddPolyZone(points, cb) end
 
@@ -72,20 +75,21 @@ Poly = {
             end,
         })
 
-        if not Poly.ResourceZones[GetInvokingResource()] then Poly.ResourceZones[GetInvokingResource()] = {} end
-        Poly.ResourceZones[GetInvokingResource()][id] = id
+        if not Poly.ResourceZones[invokingResource] then Poly.ResourceZones[invokingResource] = {} end
+        Poly.ResourceZones[invokingResource][id] = id
 
 
         return id
     end,
 
     RemoveZone = function(id)
-        if not id then return end 
+        local invokingResource = GetInvokingResource() or GetCurrentResourceName()
+        if not id then return end
         if not Poly.Data[id] then return end
         Poly.Data[id]:remove()
 
-        if Poly.ResourceZones[GetInvokingResource()] then 
-            Poly.ResourceZones[GetInvokingResource()][id] = nil
+        if Poly.ResourceZones[invokingResource] then
+            Poly.ResourceZones[invokingResource][id] = nil
         end
     end,
 }
@@ -93,7 +97,7 @@ Poly = {
 RegisterNetEvent("onResourceStop", function(resName)
     if Poly.ResourceZones[resName] then
         for k, v in pairs(Poly.ResourceZones[resName]) do
-            Poly.Data[k]:remove() 
+            Poly.Data[k]:remove()
         end
     end
 end)
