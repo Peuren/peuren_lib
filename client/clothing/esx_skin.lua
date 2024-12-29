@@ -5,7 +5,6 @@ Clothing = {
         TriggerEvent('skinchanger:getSkin', function(skin)           
             TriggerEvent('skinchanger:loadClothes', skin, outfit)
         end)
-
     end,
 
     Reset = function()

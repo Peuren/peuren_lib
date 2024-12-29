@@ -15,6 +15,8 @@ Clothing = {
             pants_2   = outfit.pants_2,
             shoes_1   = outfit.shoes_1,
             glasses_1 = outfit.glasses_1,
+            decals_1  = outfit.decals_1,
+            decals_2  = outfit.decals_2,
         })
     end,
 
