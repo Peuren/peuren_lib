@@ -18,9 +18,10 @@ Clothing = {
         local pants = {component_id = 4, texture = outfit.pants_2, drawable = outfit.pants_1}
         local shoes = {component_id = 6, texture = outfit.shoes_2, drawable = outfit.shoes_1}
         local accesories = {component_id = 7, texture = outfit.chain_2, drawable = outfit.chain_1}
+        local decals = {component_id = 10, texture = outfit.decals_2, drawable = outfit.decals_1}
         local props = {props = {{prop_id = 1, texture = outfit.glasses_2, drawable = outfit.glasses_1}, {prop_id = 2, texture = outfit.ears_2, drawable = outfit.ears_1}}}
         
-        exports[Config.ClothingResource]:setPlayerSkin(ped, {torso, undershirt, pants, shoes, accesories, arms, props})
+        exports[Config.ClothingResource]:setPlayerSkin(ped, {torso, undershirt, pants, shoes, accesories, arms, decals, props})
     end,
 
     Reset = function()
