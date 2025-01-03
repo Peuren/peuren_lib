@@ -172,7 +172,7 @@ Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource
     xd_locksystem
     tgiann-hotwire
     dusa_vehiclekeys
-    renewed_vehiclekeys
+    Renewed-Vehiclekeys
 ]]
 
 Config.Clothing = 'qb-clothing'
