@@ -30,7 +30,13 @@ Framework = {
 
     SpawnVehicle = function(model, pos, cb, networked)
         ESX.Game.SpawnVehicle(model, pos, heading, cb, networked)
-    end
+    end,
+    GetVehicleProperties = function (vehicle)
+        return ESX.Game.GetVehicleProperties(vehicle)
+    end,
+    SetVehicleProperties = function (vehicle, data)
+        return ESX.Game.SetVehicleProperties(vehicle, data)
+    end,
 }
 
 AddEventHandler('esx:onPlayerSpawn', function()

@@ -17,11 +17,18 @@ Framework = {
 
     SpawnVehicle = function(model, pos, cb, networked)
         QBCore.Functions.SpawnVehicle(model, cb, pos, networked)
-    end
+    end,
+
+    GetVehicleProperties = function (vehicle)
+        return QBCore.Functions.GetVehicleProperties(vehicle)
+    end,
+    SetVehicleProperties = function (vehicle, data)
+        return QBCore.Functions.SetVehicleProperties(vehicle, data)
+    end,
 }
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    TriggerEvent('peuren_lib:PlayerLoaded')
+    TriggerEvent('cb_lib:PlayerLoaded')
     Framework.PlayerLoaded = true
 end)
 
