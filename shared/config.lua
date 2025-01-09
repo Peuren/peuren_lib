@@ -106,6 +106,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
     esx
     okok
     mythic
+    s1n_notify
 ]]
 
 Config.WeatherSync = 'qb-weathersync'
