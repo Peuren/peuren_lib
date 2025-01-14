@@ -38,8 +38,8 @@ Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
     origen_inventory
 ]]
 
-Config.Target = "qb-target"
-Config.TargetResource = 'qb-target' -- The inventory system folder name that you're using
+Config.Target = "ox_target"
+Config.TargetResource = 'ox_target' -- The inventory system folder name that you're using
 --SUPPORTED TARGET SCRIPT NAMES TO PUT IN: Config.Target  = ""
 --[[
     qb-target
@@ -82,6 +82,7 @@ Config.TextUIResource = "ox_lib" -- The TextUI system folder name that you're us
     ps-ui
     ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
     okokTextUI
+    jg-textui
     qb
 ]]
 
@@ -150,6 +151,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     FRFuel
     renewed-fuel
     xFuel
+    rcore_fuel
     qs-fuelstations
 ]]
 
