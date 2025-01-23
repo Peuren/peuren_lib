@@ -182,6 +182,7 @@ Config.Clothing = 'qb-clothing'
 Config.ClothingResource = 'qb-clothing' -- The clothing system resource folder name
 --SUPPORTED CLOTHING SCRIPT NAMES TO PUT IN: Config.Clothing = ""
 --[[
+    crm-appearance
     codem-appearance
     tgiann-clothing
     esx_skin

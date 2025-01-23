@@ -5,6 +5,7 @@ Clothing = {
         if not outfit then return end 
 
         local ped = PlayerPedId()
+        if not ped then return end
 
         if not Clothing.Appearance then
             Clothing.Appearance = exports[Config.ClothingResource]:getPlayerSkin(true)
@@ -20,8 +21,8 @@ Clothing = {
         local accesories = {component_id = 7, texture = outfit.chain_2, drawable = outfit.chain_1}
         local decals = {component_id = 10, texture = outfit.decals_2, drawable = outfit.decals_1}
         local props = {props = {{prop_id = 1, texture = outfit.glasses_2, drawable = outfit.glasses_1}, {prop_id = 2, texture = outfit.ears_2, drawable = outfit.ears_1}}}
-        
-        exports[Config.ClothingResource]:setPlayerSkin(ped, {torso, undershirt, pants, shoes, accesories, arms, decals, props})
+
+        exports[Config.ClothingResource]:setPlayerSkin({torso, undershirt, pants, shoes, accesories, arms, decals, props}, false)
     end,
 
     Reset = function()
