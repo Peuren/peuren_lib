@@ -12,7 +12,13 @@ Framework = {
     SpawnVehicle = function(model, pos, cb, networked)
         local result = lib.callback.await('peuren_lib:SpawnVehicle', false, model, pos)
         cb(NetToVeh(result))
-    end
+    end,
+    GetVehicleProperties = function (vehicle)
+        return lib.getVehicleProperties(vehicle)
+    end,
+    SetVehicleProperties = function (vehicle, data)
+        return lib.setVehicleProperties(vehicle, data)
+    end,
 }
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()

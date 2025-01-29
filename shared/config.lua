@@ -77,6 +77,7 @@ Config.InputResource = 'ox_lib' -- The input system folder name that you're usin
 
 Config.TextUI = "ox_lib"
 Config.TextUIResource = "ox_lib" -- The TextUI system folder name that you're using
+--Note : In case of qb, the TextUIResource = 'qb-core' and NOT 'qb-input'
 --SUPPORTED TEXT UI SCRIPT NAMES TO PUT IN: Config.TextUI = ""
 --[[
     ps-ui
