@@ -39,24 +39,21 @@ if Config.Framework == 'esx' then
         CarryItems.UpdateAnimation()
     end)
 else 
-    RegisterNetEvent('QBCore:Player:SetPlayerData', function(PlayerData)
-        local carriableItems = {}
-        for k, v in pairs(PlayerData.items) do
-            if CarryItems.Items[v.name] then
-                carriableItems[v.name] = true
-            end
+    AddEventHandler('qb-inventory:client:itemAdded', function(source, item, amount, totalAmount)
+        if totalAmount > 0 then
+            CarryItems.ItemAdded(item)
+        else
+            CarryItems.ItemRemoved(item)
         end
     
-        for k, v in pairs(CarryItems.InInventory) do
-            if not carriableItems[k] then
-                CarryItems.ItemRemoved(k)
-            end
-        end
+        CarryItems.UpdateAnimation()
+    end)
     
-        for k, v in pairs(carriableItems) do
-            if not CarryItems.InInventory[k] then
-                CarryItems.ItemAdded(k)
-            end
+    AddEventHandler('qb-inventory:client:itemRemoved', function(source, item, amount, totalAmount)
+        if totalAmount > 0 then
+            CarryItems.ItemAdded(item)
+        else
+            CarryItems.ItemRemoved(item)
         end
     
         CarryItems.UpdateAnimation()

@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Debug = false -- Adds additional prints and enables all other resource debug options | true or false
+Config.Debug = true -- Adds additional prints and enables all other resource debug options | true or false
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
@@ -196,4 +196,12 @@ Config.ClothingResource = 'qb-clothing' -- The clothing system resource folder n
 Config.SkillMenu = { -- Configuration for skill menu.
     Enabled = true, -- Should the Skill Menu be enabled
     Command = "skills" -- The comand which opens the skill menu. Set this to false to disable it. Skill menu can be also opened by using exports["peuren_lib"]:OpenSkillMenu()
+}
+
+Config.Groups = { -- Configuration for multiplier jobs (peuren only)
+    MemberLimit = 4,--Maximum group member amount in a group
+    password = {
+        type = 'number',--number or char
+        length = 6--code length
+    }
 }
