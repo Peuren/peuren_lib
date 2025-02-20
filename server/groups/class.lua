@@ -55,7 +55,15 @@ Groups = {
         local resource = GetInvokingResource()
         if not resource then return end
 
-        return Groups.Data[resource]
+        local result = {}
+
+        for k,v in pairs(Groups.Data[resource]) do 
+            if not v.started and not v.args.started then 
+                result[k] = v
+            end
+        end
+
+        return result
     end,
 
     Set = function(source, args)
@@ -75,6 +83,7 @@ Groups = {
         local pName = Framework.GetCharName(source)
 
         args.groupId = groupId
+        args.started = false
 
         Groups.Data[resource][id] = {
             groupId = groupId,
@@ -133,8 +142,12 @@ Groups = {
             return 'full'
         end
 
+        if Groups.Data[resource][data.owner].players[source] then 
+            return
+        end
+
         Groups.Data[resource][data.owner].players[source] = {
-            soruce = source,
+            source = source,
             id = id,
             name = pName
         }
@@ -164,42 +177,44 @@ Groups = {
         return data
     end,
     
-    MemberDisconnected = function(source, groupId)
-        if not source or not groupId then return end 
-
-        local resource = GetInvokingResource()
-        if not resource then return end
+    MemberDisconnected = function(source)
+        if not source then return end
 
         local id = Framework.GetIdentifier(source)
         if not id then return end
 
-        local timeout = os.time() + (0 * 60) + 20
+        for resource, _ in pairs(Groups.Data) do 
+            for _, v in pairs(Groups.Data[resource]) do 
+                if v.players[source] and v.players[source].owner then
+                    local timeout = os.time() + (Config.Groups.Timeout.min * 60) + Config.Groups.Timeout.sec
 
-        CreateThread(function()
-            while timeout > os.time() do
-                Wait(1000)
-            end
+                    CreateThread(function()
+                        while timeout > os.time() do
+                            Wait(1000)
+                        end
 
-            local isOnline = Framework.GetIdentifier(source)
-            if isOnline then return end
+                        v.players[source] = nil
+                        Groups.Update(source, v.groupId, v)
 
-            Groups.RemoveMember(source, groupId)
+                        local isOnline = Framework.GetIdentifierID(id)
+                        if isOnline then return end
 
-            local data = Groups.Data[job][id]
-            if not data then return end
+                        local newOwner = #v.players > 0 and v.players[math.random(1, #v.players)] or nil
             
-            local newOwner = data.players[math.random(1, #data.players)]
+                        if not newOwner then
+                            Groups.Data[resource][id] = nil
+                            return
+                        end
+            
+                        v.owner = newOwner.id
+                        v.players[newOwner.source].owner = true
 
-            if not newOwner then 
-                Groups.Data[job][id] = nil
-                return
+                        Groups.Update(source, v.groupId, v)
+                        Groups.SendEvent(source, v.groupId, 'peuren_lib:group:OwnerChanged', newOwner)
+                    end)
+                end
             end
-
-            data.owner = newOwner.id
-            data.players[newOwner.source].owner = true
-
-            Groups.SendEvent(source, groupId, 'peuren_lib:group:OwnerChanged', newOwner) 
-        end)
+        end
     end,
 
     SendEvent = function(source, groupId, event, args)

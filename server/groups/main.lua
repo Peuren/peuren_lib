@@ -5,5 +5,5 @@ AddEventHandler('onResourceStop', function(resource)
 end)
 
 AddEventHandler('playerDropped', function()
-    
+    Groups.MemberDisconnected(source)
 end)

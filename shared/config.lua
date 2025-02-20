@@ -200,6 +200,7 @@ Config.SkillMenu = { -- Configuration for skill menu.
 
 Config.Groups = { -- Configuration for multiplier jobs (peuren only)
     MemberLimit = 4,--Maximum group member amount in a group
+    Timeout = { min = 0, sec = 10 }, --The time in which the group owner has to return to game before assigning a new group leader
     password = {
         type = 'number',--number or char
         length = 6--code length
