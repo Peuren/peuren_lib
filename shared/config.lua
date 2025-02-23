@@ -48,10 +48,12 @@ Config.TargetResource = 'ox_target' -- The inventory system folder name that you
 ]]
 
 Config.ProgessBar = 'ox_lib' -- ox_lib / qb
+Config.ProgessBarResource = 'ox_lib' -- The menu system folder name that you're using
 --SUPPORTED PROGRESS BAR SCRIPT NAMES TO PUT IN: Config.ProgessBar = ""
 --[[
     ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
     qb
+    tgiann-lumihud
 ]]
 
 Config.Menu = 'ox_lib'
@@ -108,6 +110,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
     okok
     mythic
     s1n_notify
+    tgiann-lumihud
 ]]
 
 Config.WeatherSync = 'qb-weathersync'
