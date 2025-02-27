@@ -57,8 +57,12 @@ Groups = {
 
         local result = {}
 
+        if not Groups.Data[resource] then
+            return result
+        end
+
         for k,v in pairs(Groups.Data[resource]) do 
-            if not v.started and not v.args.started then 
+            if not v.started and not v.args?.started then 
                 result[k] = v
             end
         end
