@@ -140,7 +140,7 @@ Groups = {
 
         local pName = Framework.GetCharName(source)
 
-        if #data.pCount >= Config.Groups.MemberLimit then 
+        if data.pCount >= Config.Groups.MemberLimit then 
             return 'full'
         end
 
@@ -204,7 +204,7 @@ Groups = {
                         local isOnline = Framework.GetIdentifierID(id)
                         if isOnline then return end
 
-                        local newOwner = #v.pCount > 0 and v.players[tostring(math.random(1, #v.pCount))] or nil
+                        local newOwner = v.pCount > 0 and v.players[tostring(math.random(1, v.pCount))] or nil
             
                         if not newOwner then
                             Groups.Data[resource][id] = nil
