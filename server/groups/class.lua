@@ -45,10 +45,7 @@ Groups = {
         local data = Groups.Get(source, groupId)
         if not data then return end
 
-        local id = Framework.GetIdentifier(source)
-        if not id then return end
-
-        return data.players[id]
+        return data.players[tostring(source)]
     end,
 
     GetJobGroups = function()
@@ -95,8 +92,9 @@ Groups = {
             owner = id,
             args = args,
             started = false,
+            pCount = 1,
             players = {
-                [source] = {
+                [tostring(source)] = {
                     source = source,
                     id = id,
                     name = pName,
@@ -142,15 +140,16 @@ Groups = {
 
         local pName = Framework.GetCharName(source)
 
-        if #data.players >= Config.Groups.MemberLimit then 
+        if #data.pCount >= Config.Groups.MemberLimit then 
             return 'full'
         end
 
-        if Groups.Data[resource][data.owner].players[source] then 
+        if Groups.Data[resource][data.owner].players[tostring(source)] then 
             return
         end
 
-        Groups.Data[resource][data.owner].players[source] = {
+        Groups.Data[resource][data.owner].pCount += 1
+        Groups.Data[resource][data.owner].players[tostring(source)] = {
             source = source,
             id = id,
             name = pName
@@ -175,7 +174,8 @@ Groups = {
         local resource = GetInvokingResource()
         if not resource then return end
 
-        Groups.Data[resource][data.owner].players[source] = nil
+        Groups.Data[resource][data.owner].pCount -= 1
+        Groups.Data[resource][data.owner].players[tostring(source)] = nil
         TriggerClientEvent(resource..':group:MemberRemoved', source, {}, data.owner == id)
 
         return data
@@ -189,7 +189,7 @@ Groups = {
 
         for resource, _ in pairs(Groups.Data) do 
             for _, v in pairs(Groups.Data[resource]) do 
-                if v.players[source] and v.players[source].owner then
+                if v.players[tostring(source)] and v.players[tostring(source)].owner then
                     local timeout = os.time() + (Config.Groups.Timeout.min * 60) + Config.Groups.Timeout.sec
 
                     CreateThread(function()
@@ -197,13 +197,14 @@ Groups = {
                             Wait(1000)
                         end
 
-                        v.players[source] = nil
+                        v.pCount -= 1
+                        v.players[tostring(source)] = nil
                         Groups.Update(source, v.groupId, v)
 
                         local isOnline = Framework.GetIdentifierID(id)
                         if isOnline then return end
 
-                        local newOwner = #v.players > 0 and v.players[math.random(1, #v.players)] or nil
+                        local newOwner = #v.pCount > 0 and v.players[tostring(math.random(1, #v.pCount))] or nil
             
                         if not newOwner then
                             Groups.Data[resource][id] = nil
@@ -211,7 +212,7 @@ Groups = {
                         end
             
                         v.owner = newOwner.id
-                        v.players[newOwner.source].owner = true
+                        v.players[tostring(newOwner.source)].owner = true
 
                         Groups.Update(source, v.groupId, v)
                         Groups.SendEvent(source, v.groupId, 'peuren_lib:group:OwnerChanged', newOwner)
@@ -245,7 +246,7 @@ Groups = {
         if not data then return false end
 
         for _, v in pairs(data) do
-            if v.players[source] then return true end
+            if v.players[tostring(source)] then return true end
         end
 
         return false
