@@ -66,7 +66,7 @@ Framework = {
 
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end
-            return xPlayer.addAccountMoney(account, amount)
+            return xPlayer.addAccountMoney(account, math.ceil(amount))
         end,
         Get = function(player, account)
             if account ~= "cash" and account ~= "bank" and account ~= "black_money" then
@@ -90,7 +90,7 @@ Framework = {
             if not xPlayer then return end
             if xPlayer.getAccount(account).money < amount then return false end
 
-            xPlayer.removeAccountMoney(account, amount)
+            xPlayer.removeAccountMoney(account, math.ceil(amount))
             return true
         end,
     },
