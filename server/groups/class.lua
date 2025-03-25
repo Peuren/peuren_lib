@@ -2,7 +2,7 @@ Groups = {
     Data = {},
     
     Get = function(source, groupId)
-        if not source then return end 
+        if not source then return end
 
         local resource = GetInvokingResource()
         if not resource then return end
@@ -73,7 +73,7 @@ Groups = {
         local resource = GetInvokingResource()
         if not resource then return end
 
-        local data = Groups.Get(source, resource)
+        local data = Groups.Get(source)
         if data then return end
 
         local id = Framework.GetIdentifier(source)
