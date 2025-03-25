@@ -31,6 +31,7 @@ Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
     mf-inventory
     esx_inventory
     qb-inventory
+    qb-inventory-new (for new versions of qb-inventory)
     ox_inventory
     qs-inventory
     tgiann-inventory

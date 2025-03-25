@@ -26,6 +26,4 @@ AddEventHandler('ox_inventory:itemCount', function(itemName, totalCount)
     CarryItems.UpdateAnimation()
 end)
 
-
-
 return Inventory
