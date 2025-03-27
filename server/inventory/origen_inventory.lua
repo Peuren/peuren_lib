@@ -15,16 +15,18 @@ Inventory = {
         }
     end,
     GetItems = function(source)
-        local items = exports[Config.InventoryResource]:GetInventory(source)
-        if not items then return {} end
+        local data = exports[Config.InventoryResource]:GetInventory(source)
+        if not data then return {} end
 
         local formattedItems = {}
-        for k, v in pairs(items) do
-            formattedItems[#formattedItems+1] = {
-                item = v.name,
-                count = v.count,
-                metadata = v.metadata,
-            }
+        for k, v in pairs(data.inventory) do
+            if v.name then
+                formattedItems[#formattedItems+1] = {
+                    item = v.name,
+                    count = v.amount,
+                    metadata = v.metadata,
+                }
+            end
         end
         return formattedItems
     end,
