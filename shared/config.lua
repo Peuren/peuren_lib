@@ -112,6 +112,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
     mythic
     s1n_notify
     tgiann
+    k5_notify
 ]]
 
 Config.WeatherSync = 'qb-weathersync'
