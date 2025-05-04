@@ -35,6 +35,7 @@ Groups = {
         if not resource then return end
 
         Groups.Data[resource][result.owner] = data
+        Groups.SendEvent(source, groupId, resource..':group:Updated', data)
 
         return data
     end,
