@@ -158,6 +158,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     xFuel
     rcore_fuel
     qs-fuelstations
+    lc_fuel
 ]]
 
 Config.VehicleKeys = 'qb-vehiclekeys'
