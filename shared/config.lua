@@ -48,7 +48,7 @@ Config.TargetResource = 'ox_target' -- The inventory system folder name that you
     qtarget
 ]]
 
-Config.ProgessBar = 'ox_lib' -- ox_lib / qb
+Config.ProgessBar = 'ox_lib'
 Config.ProgessBarResource = 'ox_lib' -- The menu system folder name that you're using
 --SUPPORTED PROGRESS BAR SCRIPT NAMES TO PUT IN: Config.ProgessBar = ""
 --[[
@@ -113,6 +113,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
     s1n_notify
     tgiann
     k5_notify
+    vms_notifyv2
 ]]
 
 Config.WeatherSync = 'qb-weathersync'

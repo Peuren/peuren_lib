@@ -98,6 +98,12 @@ Framework = {
         end,
     },
     Job = {
+        Set = function(player, job, grade)
+            local xPlayer = ESX.GetPlayerFromId(player)
+            if not xPlayer then return end
+            xPlayer.setJob(job, grade)
+            return true
+        end,
         Get = function(player)
             local xPlayer = ESX.GetPlayerFromId(player)
             if not xPlayer then return end

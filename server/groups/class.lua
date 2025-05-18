@@ -159,7 +159,7 @@ Groups = {
         local resource = GetInvokingResource()
         if not resource then return end
 
-        TriggerClientEvent(resource..':group:MemberAdded', source, {}, data.owner == id)
+        TriggerClientEvent(resource..':group:MemberAdded', source, Groups.Data[resource][data.owner], data.owner == id)
         return data
     end,
 

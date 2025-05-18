@@ -96,6 +96,12 @@ Framework = {
         end,
     },
     Job = {
+        set = function(player, job, grade)
+            -- local xPlayer = Ox.GetPlayer(player)
+            -- if not xPlayer then return end
+            -- xPlayer.setJob(job, grade)
+            return true
+        end,
         Get = function(player)
             -- local xPlayer = Ox.GetPlayer(player)
             -- if not xPlayer then return end

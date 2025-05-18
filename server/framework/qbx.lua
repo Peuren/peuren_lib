@@ -90,6 +90,12 @@ Framework = {
         end,
     },
     Job = {
+        Set = function(player, job, grade)
+            local Player = QBCore.Functions.GetPlayer(player)
+            if not Player then return end
+            Player.Functions.SetJob(job, grade)
+            return true
+        end,
         Get = function(player)
             local Player = exports.qbx_core:GetPlayer(player)
             if not Player then return end
