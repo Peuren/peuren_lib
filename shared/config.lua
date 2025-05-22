@@ -4,9 +4,9 @@ Config.Debug = false -- Adds additional prints and enables all other resource de
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
-Config.Framework = "esx" 
+Config.Framework = "qb" 
 Config.IsOldESX = false --This option is needed if you are running an older version of ESX
-Config.FrameworkResource = "es_extended" -- Framework resource name
+Config.FrameworkResource = "qb-core" -- Framework resource name
 --SUPPORTED FRAMEWORK NAMES TO PUT IN: Config.Framework = ""
 --[[
     esx
@@ -160,6 +160,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     rcore_fuel
     qs-fuelstations
     lc_fuel
+    sgx-fuel
 ]]
 
 Config.VehicleKeys = 'qb-vehiclekeys'
