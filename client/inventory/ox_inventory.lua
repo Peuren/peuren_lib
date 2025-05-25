@@ -16,7 +16,7 @@ Inventory = {
     end
 }
 
-AddEventHandler('ox_inventory:itemCount', function(itemName, totalCount) 
+RegisterNetEvent('ox_inventory:itemCount', function(itemName, totalCount) 
     if totalCount > 0 then
         CarryItems.ItemAdded(itemName)
     else
