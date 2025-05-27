@@ -68,6 +68,8 @@ Framework = {
             if not xPlayer then return end
 
             if math.ceil(amount) <= 0 then return true end
+
+            TriggerClientEvent("peuren_lib:notify", player, lib.Locale("paid_title"), lib.Locale("you_got_paid"):format(math.ceil(amount)), "success")
             return xPlayer.addAccountMoney(account, math.ceil(amount))
         end,
         Get = function(player, account)

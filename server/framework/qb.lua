@@ -62,6 +62,8 @@ Framework = {
 
             local Player = QBCore.Functions.GetPlayer(player)
             if not Player then return end
+
+            TriggerClientEvent("peuren_lib:notify", player, lib.Locale("paid_title"), lib.Locale("you_got_paid"):format(amount), "success")
             return Player.Functions.AddMoney(account, amount)
         end,
         Get = function(player, account)
