@@ -59,7 +59,7 @@ Framework = {
             xPlayer.set('accounts', accounts)
 
             if account == 'cash' then
-                TriggerClientEvent("peuren_lib:notify", player, lib.Locale("paid_title"), lib.Locale("you_got_paid"):format(amount), "success")
+                TriggerClientEvent("peuren_lib:notify", player, Core.Locale("paid_title"), Core.Locale("you_got_paid"):format(amount), "success")
                 exports.ox_inventory:AddItem(player, 'money', amount)
             end
 
