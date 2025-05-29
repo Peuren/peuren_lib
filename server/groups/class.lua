@@ -88,6 +88,7 @@ Groups = {
         args.started = false
 
         Groups.Data[resource][id] = {
+            resource = resource,
             groupId = groupId,
             pass = password,
             owner = id,
@@ -243,11 +244,12 @@ Groups = {
         local resource = GetInvokingResource()
         if not resource then return end
 
-        local data = Groups.Data[resource]
-        if not data then return false end
-
-        for _, v in pairs(data) do
-            if v.players[tostring(source)] then return true end
+        for _, group in pairs(Groups.Data) do
+            for _, data in pairs(group) do
+                if data.players[tostring(source)] and data.resource ~= resource then
+                    return true
+                end
+            end
         end
 
         return false

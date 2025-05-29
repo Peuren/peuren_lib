@@ -66,6 +66,7 @@ Core.Version = VersionCheck
 Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Print = Utils.Print
+Core.LoadLocales()
 
 Core.Framework.RegisterCallback("peuren_lib:GetSkillData", function(source, cb)
     local skillData = {}
