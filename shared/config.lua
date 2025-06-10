@@ -202,6 +202,17 @@ Config.ClothingResource = 'qb-clothing' -- The clothing system resource folder n
     rcore_clothing
 ]]
 
+Config.VehicleProperties = 'ox_lib'--Recommended to use ox_lib for vehicle properties, but you can use other resources as well.
+Config.VehiclePropertiesResource = 'ox_lib' -- The vehicle properties system resource folder name
+--SUPPORTED VEHICLE PROPERTIES SCRIPT NAMES TO PUT IN: Config.VehicleProperties = ""
+--[[
+    ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
+    qb
+    qbx
+    esx
+
+]]
+
 Config.SkillMenu = { -- Configuration for skill menu.
     Enabled = true, -- Should the Skill Menu be enabled
     Command = "skills" -- The comand which opens the skill menu. Set this to false to disable it. Skill menu can be also opened by using exports["peuren_lib"]:OpenSkillMenu()
