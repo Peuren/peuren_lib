@@ -57,6 +57,7 @@ VersionCheck('Peuren/peuren_lib')
 
 Core = {}
 Core.Locale = locale
+loadLocales()
 Core.Framework = LoadModule("framework", Config.Framework)
 Core.Database = LoadModule("database", Config.SQLConnector)
 Core.Inventory = LoadModule("inventory", Config.Inventory)
@@ -66,7 +67,6 @@ Core.Version = VersionCheck
 Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Print = Utils.Print
-Core.LoadLocales()
 
 Core.Framework.RegisterCallback("peuren_lib:GetSkillData", function(source, cb)
     local skillData = {}

@@ -9,7 +9,7 @@ use_experimental_fxv2_oal 'yes'
 
 client_scripts { 
   -- '@ox_core/imports/client.lua', --Remove the two -- if you're using ox_core in your server
-
+  'utils/**/*.lua', 
   'client/groups/**', 
   "client/inventory/carryItems.lua", 
   'client/main.lua', 
@@ -25,16 +25,15 @@ shared_scripts {
 
   '@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your server
   -- '@qbx_core/modules/lib.lua', --Remove the two -- if you're using qbx_core in your server
-  
-  'utils/**/*.lua', 
+
   'shared/**/*.lua' 
 }
 
 server_scripts { 
   -- '@ox_core/imports/server.lua', --Remove the two -- if you're using ox_core in your server
-
+  'utils/**/*.lua', 
   'server/groups/**', 
   'server/main.lua'
 }
 
-files { 'client/**/*.lua', 'locales/*.json' }
+files { 'locales/*.json', 'client/**/*.lua' }
