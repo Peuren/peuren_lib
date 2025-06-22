@@ -12,8 +12,9 @@ client_scripts {
   'utils/**/*.lua', 
   'client/groups/**', 
   "client/inventory/carryItems.lua", 
+  'client/entitySync/**',
   'client/main.lua', 
-  "client/menu/skillMenu.lua"
+  "client/menu/skillMenu.lua",
 }
 
 shared_scripts { 
@@ -31,9 +32,10 @@ shared_scripts {
 
 server_scripts { 
   -- '@ox_core/imports/server.lua', --Remove the two -- if you're using ox_core in your server
-  'utils/**/*.lua', 
-  'server/groups/**', 
-  'server/main.lua'
+  'utils/**/*.lua',
+  'server/groups/**',
+  'server/main.lua',
+  'server/entitySync/**',
 }
 
 files { 'locales/*.json', 'client/**/*.lua' }

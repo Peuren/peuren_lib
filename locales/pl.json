@@ -1,0 +1,11 @@
+{
+    "input_confirm": "Potwierdź",
+    "skill_menu_title": "Umiejętności",
+    "peuren_fishing": "Wędkarstwo",
+    "peuren_burglary_hacking": "Hakowanie Alarmów",
+    "peuren_burglary_lockpicking": "Włamywanie do Domów",
+    "peuren_burglary_looting": "Plądrowanie Domów",
+    "skill_menu_description": "%s XP | %s LVL",
+    "paid_title": "Zapłacono",
+    "you_got_paid": "Otrzymałeś $%s"
+}

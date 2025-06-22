@@ -9,7 +9,7 @@ Config.IsOldESX = false --This option is needed if you are running an older vers
 Config.FrameworkResource = "qb-core" -- Framework resource name
 --SUPPORTED FRAMEWORK NAMES TO PUT IN: Config.Framework = ""
 --[[
-    esx
+    esx - (default resource name: es_extended)
     qbx - (Uncomment qbx_core export in peuren_lib/fxmanifest.lua file)
     ox - (Uncomment ox_core imports in fxmanifest.lua file)
 ]]
