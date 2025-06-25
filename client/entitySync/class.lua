@@ -15,6 +15,13 @@ EntitySync = {
         return result
     end,
 
+    CreatePed = function(model, pos, args)
+        if not model or not pos then return end
+
+        local result = Core.Framework.Callbacks.Trigger('peuren_lib:CreatePed', model, pos, args)
+        return result
+    end,
+
     RequestEntityControl = function(netId)
         if not netId then return end
 

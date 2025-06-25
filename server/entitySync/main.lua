@@ -7,7 +7,20 @@ Core.Framework.RegisterCallback('peuren_lib:CreateEntity', function(source, cb, 
     cb(result)
 end)
 
+Core.Framework.RegisterCallback('peuren_lib:CreatePed', function(source, cb, model, pos, args)
+    if not source or not model or not pos then return cb(false) end
+
+    local result = EntitySync.CreatePed(model, pos, args or {})
+    if not result then return cb(false) end
+
+    cb(result)
+end)
+
 Core.Framework.RegisterCallback('peuren_lib:CreateVehicle', function(source, cb, model, pos, args)
     if not source or not model or not pos then return cb(false) end
-    cb(EntitySync.CreateVehicle(model, pos, args or {}))
+
+    local result = EntitySync.CreateVehicle(model, pos, args or {})
+    if not result then return cb(false) end
+
+    cb(result)
 end)
