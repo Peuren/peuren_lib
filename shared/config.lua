@@ -12,6 +12,7 @@ Config.FrameworkResource = "qb-core" -- Framework resource name
     esx - (default resource name: es_extended)
     qbx - (Uncomment qbx_core export in peuren_lib/fxmanifest.lua file)
     ox - (Uncomment ox_core imports in fxmanifest.lua file)
+    tmc - (default resource name: core)
 ]]
 
 Config.SQLConnector = "oxmysql"
@@ -27,6 +28,7 @@ Config.InventoryResource = 'ox_inventory' -- The inventory system folder name th
 Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
 --SUPPORTED INVENTORY SCRIPT NAMES TO PUT IN: Config.Inventory = ""
 --[[
+    tmc
     avp_inv_4
     mf-inventory
     esx_inventory
@@ -52,6 +54,7 @@ Config.ProgessBar = 'ox_lib'
 Config.ProgessBarResource = 'ox_lib' -- The menu system folder name that you're using
 --SUPPORTED PROGRESS BAR SCRIPT NAMES TO PUT IN: Config.ProgessBar = ""
 --[[
+    tmc
     ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
     qb
     tgiann
@@ -61,6 +64,7 @@ Config.Menu = 'ox_lib'
 Config.MenuResource = 'ox_lib' -- The menu system folder name that you're using
 --SUPPORTED MENU SCRIPT NAMES TO PUT IN: Config.Menu = ""
 --[[
+    tmc
     ps-ui
     ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
     qb
@@ -103,6 +107,7 @@ Config.Notifications = "ox_lib"
 Config.NotificationsResource = "ox_lib" -- The notification system folder name that you're using
 --SUPPORTED NOTIFICATION SCRIPT NAMES TO PUT IN: Config.Notifications = ""
 --[[
+    tmc
     peuren_notify
     ps-ui
     ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
@@ -119,6 +124,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
 Config.WeatherSync = 'qb-weathersync'
 --SUPPORTED WEATHER SYNC SCRIPT NAMES TO PUT IN: Config.WeatherSync = ""
 --[[
+    tmc
     renewed-weathersync
     qb-weathersync
     cd_easytime
@@ -128,6 +134,7 @@ Config.Dispatch = 'cd_dispatch'
 Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder name
 --SUPPORTED DISPATCH SCRIPT NAMES TO PUT IN: Config.Dispatch = ""
 --[[
+    tmc
     fea-dispatch
     origen_police
     rcore_dispatch
@@ -145,6 +152,7 @@ Config.Fuel = 'LegacyFuel'
 Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
 --SUPPORTED FUEL SCRIPT NAMES TO PUT IN: Config.Fuel = ""
 --[[
+    tmc
     okokGasStation
     LegacyFuel
     ox_fuel
@@ -167,6 +175,7 @@ Config.VehicleKeys = 'qb-vehiclekeys'
 Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource folder name
 --SUPPORTED VEHICLE KEY SCRIPT NAMES TO PUT IN: Config.VehicleKeys = ""
 --[[
+    tmc
     MrNewbVehicleKeys
     mk_vehiclekeys
     okokGarage
@@ -191,6 +200,7 @@ Config.Clothing = 'qb-clothing'
 Config.ClothingResource = 'qb-clothing' -- The clothing system resource folder name
 --SUPPORTED CLOTHING SCRIPT NAMES TO PUT IN: Config.Clothing = ""
 --[[
+    tmc
     crm-appearance
     codem-appearance
     tgiann-clothing
