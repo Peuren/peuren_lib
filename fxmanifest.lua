@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'PEUREN DEVELOPMENT - peuren.tebex.io'
-version '0.4.4'
+version '0.4.5'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
