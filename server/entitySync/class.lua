@@ -62,7 +62,7 @@ EntitySync = {
 
         SetEntityIgnoreRequestControlFilter(vehicle, true)
         local netId = NetworkGetNetworkIdFromEntity(vehicle)
-
+        
         while NetworkGetEntityOwner(vehicle) == -1 or not DoesEntityExist(vehicle) do
             Wait(100)
         end

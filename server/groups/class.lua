@@ -161,6 +161,8 @@ Groups = {
         if not resource then return end
 
         TriggerClientEvent(resource..':group:MemberAdded', source, Groups.Data[resource][data.owner], data.owner == id)
+        Groups.SendEvent(source, groupId, resource..':group:Updated', data)
+
         return data
     end,
 
@@ -179,6 +181,7 @@ Groups = {
         Groups.Data[resource][data.owner].pCount -= 1
         Groups.Data[resource][data.owner].players[tostring(source)] = nil
         TriggerClientEvent(resource..':group:MemberRemoved', source, {}, data.owner == id)
+        Groups.SendEvent(source, groupId, resource..':group:Updated', data)
 
         return data
     end,
@@ -288,8 +291,8 @@ Groups = {
             id = id .. string.sub(characters, index, index)
         end
 
-        if Groups.Data[id] then 
-            return Groups.CreateGroupId() 
+        if Groups.Data[id] then
+            return Groups.CreateGroupId()
         end
     
         return id
