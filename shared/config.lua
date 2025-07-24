@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Debug = false -- Adds additional prints and enables all other resource debug options | true or false
+Config.Debug = true -- Adds additional prints and enables all other resource debug options | true or false
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
@@ -175,6 +175,7 @@ Config.VehicleKeys = 'qb-vehiclekeys'
 Config.VehicleKeysResource = 'qb-vehiclekeys' -- The vehicle key system resource folder name
 --SUPPORTED VEHICLE KEY SCRIPT NAMES TO PUT IN: Config.VehicleKeys = ""
 --[[
+    jaksam
     tmc
     MrNewbVehicleKeys
     mk_vehiclekeys
