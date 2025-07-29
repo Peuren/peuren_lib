@@ -135,6 +135,7 @@ Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder n
 --SUPPORTED DISPATCH SCRIPT NAMES TO PUT IN: Config.Dispatch = ""
 --[[
     tmc
+    codem-dispatch
     fea-dispatch
     origen_police
     rcore_dispatch
