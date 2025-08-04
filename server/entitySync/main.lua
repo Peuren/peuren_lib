@@ -24,3 +24,15 @@ Core.Framework.RegisterCallback('peuren_lib:CreateVehicle', function(source, cb,
 
     cb(result)
 end)
+
+exports('GetResourceSessionToken', function(resourceName)
+    if not resourceName then return nil end
+    
+    return resourceName
+end)
+
+exports('ValidateResourceAccess', function(resourceName)
+    if not resourceName then return nil end
+    
+    return resourceName
+end)
