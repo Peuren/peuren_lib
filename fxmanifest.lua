@@ -27,11 +27,13 @@ shared_scripts {
   '@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your server
   -- '@qbx_core/modules/lib.lua', --Remove the two -- if you're using qbx_core in your server
 
-  'shared/**/*.lua' 
+  'shared/config.lua',
+  'shared/itemLabels.lua',
 }
 
 server_scripts { 
   -- '@ox_core/imports/server.lua', --Remove the two -- if you're using ox_core in your server
+  'shared/discordLogs.lua',
   'utils/**/*.lua',
   'server/groups/**',
   'server/main.lua',

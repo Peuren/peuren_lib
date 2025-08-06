@@ -4,7 +4,7 @@ Config.Debug = true -- Adds additional prints and enables all other resource deb
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
-Config.Framework = "qb" 
+Config.Framework = "qb"
 Config.IsOldESX = false --This option is needed if you are running an older version of ESX
 Config.FrameworkResource = "qb-core" -- Framework resource name
 --SUPPORTED FRAMEWORK NAMES TO PUT IN: Config.Framework = ""
@@ -225,6 +225,14 @@ Config.VehiclePropertiesResource = 'ox_lib' -- The vehicle properties system res
 
 ]]
 
+Config.Logger = 'discord' -- Logger system resource name
+--SUPPORTED LOGGER SCRIPT NAMES TO PUT IN: Config.Logger = ""
+--[[
+    discord
+    ox_lib - (Uncomment ox_lib import in peuren_lib/fxmanifest.lua file)
+]]
+
+
 Config.SkillMenu = { -- Configuration for skill menu.
     Enabled = true, -- Should the Skill Menu be enabled
     Command = "skills" -- The comand which opens the skill menu. Set this to false to disable it. Skill menu can be also opened by using exports["peuren_lib"]:OpenSkillMenu()
@@ -232,9 +240,12 @@ Config.SkillMenu = { -- Configuration for skill menu.
 
 Config.Groups = { -- Configuration for multiplier jobs (peuren only)
     MemberLimit = 4,--Maximum group member amount in a group
-    Timeout = { min = 0, sec = 10 }, --The time in which the group owner has to return to game before assigning a new group leader
+    Timeout = { min = 0, sec = 30 }, --The time in which the group owner has to return to game before assigning a new group leader
     password = {
         type = 'number',--number or char
         length = 6--code length
     }
 }
+
+--Enable this if you know how to use it, otherwise leave it disabled (Extra security feature)
+Config.EnableVehicleWhiteList = true -- Enable vehicle whitelist for jobs, this will only allow vehicles that are in the job vehicle list to be spawned
