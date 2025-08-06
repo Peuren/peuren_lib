@@ -1,10 +1,10 @@
 Groups = {
     Data = {},
     
-    Get = function(source, groupId)
+    Get = function(source, groupId, resource)
         if not source then return end
 
-        local resource = GetInvokingResource()
+        resource = resource or GetInvokingResource()
         if not resource then return end
 
         local id = Framework.GetIdentifier(source)
@@ -185,6 +185,16 @@ Groups = {
 
         return data
     end,
+
+    GetLastPlayer = function(players)
+        local lastPlayer = nil
+        
+        for key, player in pairs(players) do
+            lastPlayer = player
+        end
+        
+        return lastPlayer
+    end,
     
     MemberDisconnected = function(source)
         if not source then return end
@@ -192,8 +202,8 @@ Groups = {
         local id = Framework.GetIdentifier(source)
         if not id then return end
 
-        for resource, _ in pairs(Groups.Data) do 
-            for _, v in pairs(Groups.Data[resource]) do 
+        for resource, _ in pairs(Groups.Data) do
+            for _, v in pairs(Groups.Data[resource]) do
                 if v.players[tostring(source)] and v.players[tostring(source)].owner then
                     local timeout = os.time() + (Config.Groups.Timeout.min * 60) + Config.Groups.Timeout.sec
 
@@ -209,28 +219,29 @@ Groups = {
                         local isOnline = Framework.GetIdentifierID(id)
                         if isOnline then return end
 
-                        local newOwner = v.pCount > 0 and v.players[tostring(math.random(1, v.pCount))] or nil
-            
+                        local newOwner = v.pCount > 0 and Groups.GetLastPlayer(v.players) or nil         
                         if not newOwner then
                             Groups.Data[resource][id] = nil
                             return
                         end
-            
+
                         v.owner = newOwner.id
                         v.players[tostring(newOwner.source)].owner = true
+                        
+                        Groups.Data[v.resource][id] = nil
+                        Groups.Data[v.resource][v.owner] = v
 
-                        Groups.Update(source, v.groupId, v)
-                        Groups.SendEvent(source, v.groupId, 'peuren_lib:group:OwnerChanged', newOwner)
+                        Groups.SendEvent(newOwner.source, v.groupId, v.resource..':group:Updated', v, v.resource)
                     end)
                 end
             end
         end
     end,
 
-    SendEvent = function(source, groupId, event, args)
+    SendEvent = function(source, groupId, event, args, resource)
         if not source or not groupId then return end
 
-        local data = Groups.Get(source, groupId)
+        local data = Groups.Get(source, groupId, resource)
         if not data then return end
 
         for _, v in pairs(data.players) do
