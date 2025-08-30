@@ -1,6 +1,7 @@
 Dispatch = function(data)
+    local type = GetInvokingResource() == 'peuren_burglary' and 'HouseRobbery' or nil
     local Data = {
-        type = data.dispatch_code,
+        type = type or data.dispatch_code,
         header = data.dispatch_code.." - "..data.message,
         coords = data.pos.xyz,
         pos = data.pos.xyz,
@@ -16,7 +17,6 @@ Dispatch = function(data)
             sound = 1,
         }
     }
-
     exports[Config.DispatchResource]:CustomDispatch(Data)
 end
 
