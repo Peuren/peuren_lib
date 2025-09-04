@@ -20,4 +20,8 @@ Dispatch = function(data)
     exports[Config.DispatchResource]:CustomDispatch(Data)
 end
 
+RegisterNetEvent('peuren_lib:sendDispatchAlert', function(Data)
+    Dispatch(Data)
+end)
+
 return Dispatch
