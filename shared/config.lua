@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Debug = true -- Adds additional prints and enables all other resource debug options | true or false
+Config.Debug = false -- Adds additional prints and enables all other resource debug options | true or false
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
@@ -170,6 +170,7 @@ Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
     qs-fuelstations
     lc_fuel
     sgx-fuel
+    frkn-fuelstationv4
 ]]
 
 Config.VehicleKeys = 'qb-vehiclekeys'
@@ -239,7 +240,7 @@ Config.SkillMenu = { -- Configuration for skill menu.
 }
 
 Config.Groups = { -- Configuration for multiplier jobs (peuren only)
-    MemberLimit = 4,--Maximum group member amount in a group
+    MemberLimit = 4,--Default maximum group member amount in a group
     Timeout = { min = 0, sec = 30 }, --The time in which the group owner has to return to game before assigning a new group leader
     password = {
         type = 'number',--number or char
@@ -248,4 +249,4 @@ Config.Groups = { -- Configuration for multiplier jobs (peuren only)
 }
 
 --Enable this if you know how to use it, otherwise leave it disabled (Extra security feature)
-Config.EnableVehicleWhiteList = true -- Enable vehicle whitelist for jobs, this will only allow vehicles that are in the job vehicle list to be spawned
+Config.EnableVehicleWhiteList = false -- Enable vehicle whitelist for jobs, this will only allow vehicles that are in the job vehicle list to be spawned

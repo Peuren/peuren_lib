@@ -68,7 +68,7 @@ Groups = {
         return result
     end,
 
-    Set = function(source, args)
+    Set = function(source, args, maxPlayers)
         if not source then return end
 
         local resource = GetInvokingResource()
@@ -91,6 +91,7 @@ Groups = {
             resource = resource,
             groupId = groupId,
             pass = password,
+            maxPlayers = maxPlayers or Config.Groups.MemberLimit,
             owner = id,
             args = args,
             started = false,
@@ -142,7 +143,7 @@ Groups = {
 
         local pName = Framework.GetCharName(source)
 
-        if data.pCount >= Config.Groups.MemberLimit then 
+        if data.pCount >= data.maxPlayers then
             return 'full'
         end
 
