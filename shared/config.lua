@@ -122,6 +122,7 @@ Config.NotificationsResource = "ox_lib" -- The notification system folder name t
 ]]
 
 Config.WeatherSync = 'qb-weathersync'
+Config.WeatherSyncResource = 'qb-weathersync' -- The weather sync system resource folder name
 --SUPPORTED WEATHER SYNC SCRIPT NAMES TO PUT IN: Config.WeatherSync = ""
 --[[
     tmc
@@ -149,8 +150,8 @@ Config.DispatchResource = 'cd_dispatch' -- The dispatch system resource folder n
     redutzu-mdt
 ]]
 
-Config.Fuel = 'LegacyFuel'
-Config.FuelResource = 'LegacyFuel' -- The fuel system resource folder name
+Config.Fuel = 'ox_fuel'
+Config.FuelResource = 'ox_fuel' -- The fuel system resource folder name
 --SUPPORTED FUEL SCRIPT NAMES TO PUT IN: Config.Fuel = ""
 --[[
     tmc
