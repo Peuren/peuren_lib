@@ -253,6 +253,19 @@ Groups = {
         return true
     end,
 
+    SendGlobalJobEvent = function(event, args)
+        for resource, _ in pairs(Groups.Data) do
+            for _, v in pairs(Groups.Data[resource]) do
+                for _, player in pairs(v.players) do
+                    TriggerClientEvent(event, player.source, args, player.owner)
+                    Wait(100)
+                end
+            end
+        end
+
+        return true
+    end,
+
     IsPlayerInGroup = function(source)
         if not source then return end
 
