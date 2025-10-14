@@ -44,6 +44,67 @@ Core.Print = Utils.Print
 
 Core.LoadLocales()
 
+local pendingCallbacks = {}
+local cbEvent = 'peuren_lib:callback:%s'
+local callbackTimeout = 600000
+
+RegisterNetEvent('peuren_lib:callbackHandler', function(key, ...)
+    if source == '' then return end
+
+    local cb = pendingCallbacks[key]
+
+    if not cb then return end
+
+    pendingCallbacks[key] = nil
+
+    cb(...)
+end)
+
+Core.Framework.Callbacks = {
+    Trigger = function(event, ...)
+        local key
+
+        repeat
+            key = ('%s:%s'):format(event, math.random(0, 100000))
+        until not pendingCallbacks[key]
+
+        TriggerServerEvent(cbEvent:format(event), key, ...)
+
+        local cbPromise = promise.new()
+
+        pendingCallbacks[key] = function(response, ...)
+            response = { response, ... }
+
+            if cbPromise then
+                return cbPromise:resolve(response)
+            end
+        end
+
+        if cbPromise then
+            SetTimeout(callbackTimeout, function() cbPromise:reject(("callback %s timed out"):format(key)) end)
+
+            return table.unpack(Citizen.Await(cbPromise))
+        end
+    end,
+    TriggerAsync = function(name, cb, ...)
+        local key
+
+        repeat
+            key = ('%s:%s'):format(event, math.random(0, 100000))
+        until not pendingCallbacks[key]
+
+        TriggerServerEvent(cbEvent:format(event), currentResource, key, ...)
+
+        pendingCallbacks[key] = function(response, ...)
+            response = { response, ... }
+
+            if cb then
+                cb(table.unpack(response))
+            end
+        end
+    end
+}
+
 RegisterNetEvent("peuren_lib:notify", function(title, desc, type)
     Core.Notify(title, desc, type)
 end)
