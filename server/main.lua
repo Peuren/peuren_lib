@@ -79,7 +79,7 @@ local pendingCallbacks = {}
 local cbEvent = 'peuren_lib:callback:%s'
 local callbackTimeout = 600000
 
-Config.Framework.RegisterCallback = function(name, cb)
+Core.Framework.RegisterCallback = function(name, cb)
     local event = cbEvent:format(name)
 
     RegisterNetEvent(event, function(key, ...)
