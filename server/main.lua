@@ -75,25 +75,6 @@ Core.LoadLocales = loadLocales
 Core.GetLocales = getLocales
 Core.Print = Utils.Print
 
-local pendingCallbacks = {}
-local cbEvent = 'peuren_lib:callback:%s'
-local callbackTimeout = 600000
-
-Core.Framework.RegisterCallback = function(name, cb)
-    local event = cbEvent:format(name)
-
-    RegisterNetEvent(event, function(key, ...)
-        local cbPromise = promise.new()
-
-        cb(source, function(...)
-            cbPromise:resolve(...)
-        end, ...)
-
-        local result = Citizen.Await(cbPromise)
-        TriggerClientEvent("peuren_lib:callbackHandler", source, key, result)
-    end)
-end
-
 Core.Framework.RegisterCallback("peuren_lib:GetSkillData", function(source, cb)
     local skillData = {}
 
