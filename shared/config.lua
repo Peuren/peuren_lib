@@ -151,7 +151,7 @@ Config.DispatchResource = nil -- The dispatch system resource folder name
     qs-dispatch
     tk_dispatch
     redutzu-mdt
-    op_dispatch
+    op-dispatch
 ]]
 
 Config.Fuel = nil
@@ -400,7 +400,7 @@ local function AutoDetectConfig()
             AutoOption("tk_dispatch"),
             AutoOption("redutzu-mdt"),
             AutoOption("tmc"),
-            AutoOption("op_dispatch")
+            AutoOption("op-dispatch")
         }},
         { key = "Fuel", resourceKey = "FuelResource", options = {
             AutoOption("LegacyFuel"),
