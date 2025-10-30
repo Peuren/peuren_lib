@@ -39,6 +39,7 @@ Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
     tgiann-inventory
     codem-inventory
     origen_inventory
+    jaksam_inventory
 ]]
 
 Config.Target = nil
@@ -129,6 +130,8 @@ Config.WeatherSyncResource = nil -- The weather sync system resource folder name
     renewed-weathersync
     qb-weathersync
     cd_easytime
+    av_weather
+    cs_weather
 ]]
 
 Config.Dispatch = nil
@@ -320,7 +323,8 @@ local function AutoDetectConfig()
             AutoOption("tgiann-inventory"),
             AutoOption("codem-inventory"),
             AutoOption("origen_inventory"),
-            AutoOption("tmc")
+            AutoOption("tmc"),
+            AutoOption("jaksam_inventory")
         }},
         { key = "Target", resourceKey = "TargetResource", options = {
             AutoOption("ox_target"),
@@ -378,7 +382,9 @@ local function AutoDetectConfig()
             AutoOption("tmc"),
             AutoOption("renewed-weathersync"),
             AutoOption("qb-weathersync"),
-            AutoOption("cd_easytime")
+            AutoOption("cd_easytime"),
+            AutoOption("av_weather"),
+            AutoOption("cs_weather")
         }},
         { key = "Dispatch", resourceKey = "DispatchResource", options = {
             AutoOption("cd_dispatch"),
