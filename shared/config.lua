@@ -10,6 +10,7 @@ Config.FrameworkResource = nil -- Framework resource name
 --SUPPORTED FRAMEWORK NAMES TO PUT IN: Config.Framework = ""
 --[[
     esx - (default resource name: es_extended)
+    qb - (default resource name: qb-core)
     qbx - (Uncomment qbx_core export in peuren_lib/fxmanifest.lua file)
     ox - (Uncomment ox_core imports in fxmanifest.lua file)
     tmc - (default resource name: core)

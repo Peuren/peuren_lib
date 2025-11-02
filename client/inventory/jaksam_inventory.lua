@@ -1,12 +1,7 @@
 Inventory = {
     GetItemLabel = function(item)
-        if Config.Framework == 'esx' then 
-            if not ItemLabels[item] then return "NO_LABEL" end
-            return ItemLabels[item]
-        elseif Config.Framework == 'qb' or Config.Framework == 'qbx' then
-            if not QBCore.Shared.Items[item] then return "NO_LABEL" end
-            return QBCore.Shared.Items[item].label
-        end
+        if not exports[Config.InventoryResource]:Items(item) then return "NO_LABEL" end
+        return exports[Config.InventoryResource]:Items(item).label
     end,
     AddCarriableItem = CarryItems.AddCarriableItem,
     RemoveCarriableItem = CarryItems.RemoveCarriableItem,
