@@ -70,3 +70,5 @@ EntitySync = {
         return { entity = vehicle, netId = netId }
     end,
 }
+
+return EntitySync

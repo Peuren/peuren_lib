@@ -36,8 +36,8 @@ server_scripts {
   'shared/discordLogs.lua',
   'utils/**/*.lua',
   'server/groups/**',
+  'server/entitySync/class.lua',
   'server/main.lua',
-  'server/entitySync/**',
 }
 
 files { 'locales/*.json', 'client/**/*.lua' }
