@@ -140,6 +140,7 @@ Config.DispatchResource = nil -- The dispatch system resource folder name
 --SUPPORTED DISPATCH SCRIPT NAMES TO PUT IN: Config.Dispatch = ""
 --[[
     tmc
+    p_mdt
     lb-tablet
     codem-dispatch
     fea-dispatch
@@ -403,7 +404,8 @@ local function AutoDetectConfig()
             AutoOption("redutzu-mdt"),
             AutoOption("tmc"),
             AutoOption("op-dispatch"),
-            AutoOption("lb-tablet")
+            AutoOption("lb-tablet"),
+            AutoOption("p_mdt")
         }},
         { key = "Fuel", resourceKey = "FuelResource", options = {
             AutoOption("LegacyFuel"),
