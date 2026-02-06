@@ -4,9 +4,9 @@ Config.Debug = false -- Adds additional prints and enables all other resource de
 Config.Language = 'en' -- Language file name, this means, that it will only load files from script locales folders that contain this name, 
                        -- if this is an invalid locale name on a resource it will default to english
 
-Config.Framework = 'qbx'
+Config.Framework = nil
 Config.IsOldESX = false --This option is needed if you are running an older version of ESX
-Config.FrameworkResource = 'qbx_core' -- Framework resource name
+Config.FrameworkResource = nil -- Framework resource name
 --SUPPORTED FRAMEWORK NAMES TO PUT IN: Config.Framework = ""
 --[[
     esx - (default resource name: es_extended)
@@ -24,8 +24,8 @@ Config.SQLConnector = nil
     ghmattimysql
 ]]
 
-Config.Inventory = 'ox_inventory'
-Config.InventoryResource = 'ox_inventory' -- The inventory system folder name that you're using
+Config.Inventory = nil
+Config.InventoryResource = nil -- The inventory system folder name that you're using
 Config.CarryItemsEnabled = true -- Should the Carry Items system be enabled
 --SUPPORTED INVENTORY SCRIPT NAMES TO PUT IN: Config.Inventory = ""
 --[[
@@ -208,8 +208,8 @@ Config.VehicleKeysResource = nil -- The vehicle key system resource folder name
     ak47_vehiclekeys
 ]]
 
-Config.Clothing = 'qb-clothing'
-Config.ClothingResource = 'qb-clothing' -- The clothing system resource folder name
+Config.Clothing = nil
+Config.ClothingResource = nil -- The clothing system resource folder name
 --SUPPORTED CLOTHING SCRIPT NAMES TO PUT IN: Config.Clothing = ""
 --[[
     tmc
