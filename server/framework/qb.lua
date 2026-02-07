@@ -27,6 +27,10 @@ Framework = {
         local players = QBCore.Functions.GetPlayers()
         local count = 0
 
+        if jobs ~= nil and type(jobs) ~= "table" then
+            jobs = { jobs }
+        end
+
         for _, job in pairs(jobs) do 
             for id, _ in pairs(players) do
                 local player = QBCore.Functions.GetPlayer(id)
@@ -85,6 +89,8 @@ Framework = {
             if account == "black_money" then
                 return Inventory.RemoveItem(player, "black_money", amount)
             end
+
+            if account == "money" then account = "cash" end
 
             if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)

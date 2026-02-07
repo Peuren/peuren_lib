@@ -35,6 +35,10 @@ Framework = {
     GetJobPlayerCount = function(jobs)
         local count = 0
 
+        if jobs ~= nil and type(jobs) ~= "table" then
+            jobs = { jobs }
+        end
+
         for id, _ in pairs(ESX.GetPlayers()) do 
             local xPlayer = ESX.GetPlayerFromId(id)
             if not xPlayer then goto continue end

@@ -34,6 +34,10 @@ Framework = {
     GetJobPlayerCount = function(jobs)
         local count = 0
 
+        if jobs ~= nil and type(jobs) ~= "table" then
+            jobs = { jobs }
+        end
+
         for _, job in pairs(jobs) do
             count += exports.qbx_core:GetDutyCountJob(job)
         end
@@ -81,6 +85,8 @@ Framework = {
             if account == "black_money" then
                 return Inventory.RemoveItem(player, "black_money", amount)
             end
+
+            if account == "money" then account = "cash" end
 
             if account ~= "cash" and account ~= "bank" then
                 return error("Wrong money account: cash or bank required.", 3)
