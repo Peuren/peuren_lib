@@ -8,6 +8,20 @@ Framework = {
             cb(lib.callback.await(name, false, ...))
         end
     },
+    Job = {
+        Get = function()
+            return nil
+        end,
+        GetLabel = function()
+            return nil
+        end,
+        GetGrade = function()
+            return nil
+        end,
+        GetGradeLabel = function()
+            return nil
+        end
+    },
 
     SpawnVehicle = function(model, pos, cb, networked)
         local result = lib.callback.await('peuren_lib:SpawnVehicle', false, model, pos, 90)

@@ -49,6 +49,28 @@ Framework = {
             end, ...)
         end
     },
+    Job = {
+        Get = function()
+            local PlayerData = TMC.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.name
+        end,
+        GetLabel = function()
+            local PlayerData = TMC.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.label
+        end,
+        GetGrade = function()
+            local PlayerData = TMC.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.grade.level
+        end,
+        GetGradeLabel = function()
+            local PlayerData = TMC.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.grade.name
+        end
+    },
 
     SpawnVehicle = function(model, pos, cb, networked)
         Debug('Spawning vehicle: ' .. model)
@@ -75,6 +97,11 @@ AddEventHandler('TMC:Client:OnPlayerUnload', function()
     Debug('Player unloaded event received')
     Framework.PlayerLoaded = false
     Debug('Framework.PlayerLoaded set to false')
+end)
+
+RegisterNetEvent('TMC:Client:OnJobUpdate', function(newJob)
+    Debug('Player job updated event received')
+    TriggerEvent('peuren_lib:PlayerJobUpdated', newJob)
 end)
 
 Debug('TMC framework wrapper initialized')

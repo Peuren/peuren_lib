@@ -27,6 +27,20 @@ Framework = {
             ESX.TriggerServerCallback(name, cb, ...)
         end
     },
+    Job = {
+        Get = function()
+            return ESX.PlayerData.job.name
+        end,
+        GetLabel = function()
+            return ESX.PlayerData.job.label
+        end,
+        GetGrade = function()
+            return ESX.PlayerData.job.grade.level
+        end,
+        GetGradeLabel = function()
+            return ESX.PlayerData.job.grade.name
+        end
+    },
 
     SpawnVehicle = function(model, pos, cb, networked)
         ESX.Game.SpawnVehicle(model, pos, heading, cb, networked)
@@ -36,6 +50,10 @@ Framework = {
 AddEventHandler('esx:onPlayerSpawn', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
     Framework.PlayerLoaded = true
+end)
+
+RegisterNetEvent('esx:setJob', function(newJob)
+    TriggerEvent('peuren_lib:PlayerJobUpdated', newJob)
 end)
 
 return Framework

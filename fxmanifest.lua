@@ -25,7 +25,7 @@ shared_scripts {
   -- '@PolyZone/ComboZone.lua', --Remove the two -- if you're using polyzone in your server
 
   '@ox_lib/init.lua', --Remove the two -- if you're using ox_lib in your server
-  -- '@qbx_core/modules/lib.lua', --Remove the two -- if you're using qbx_core in your server
+  '@qbx_core/modules/lib.lua', --Remove the two -- if you're using qbx_core in your server
 
   'shared/config.lua',
   'shared/itemLabels.lua',

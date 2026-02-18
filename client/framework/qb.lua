@@ -14,6 +14,28 @@ Framework = {
             QBCore.Functions.TriggerCallback(name, cb, ...)
         end
     },
+    Job = {
+        Get = function()
+            local PlayerData = QBCore.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.name
+        end,
+        GetLabel = function()
+            local PlayerData = QBCore.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.label
+        end,
+        GetGrade = function()
+            local PlayerData = QBCore.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.grade.level
+        end,
+        GetGradeLabel = function()
+            local PlayerData = QBCore.Functions.GetPlayerData()
+            if not PlayerData then return end
+            return PlayerData.job.grade.name
+        end
+    },
 
     SpawnVehicle = function(model, pos, cb, networked)
         QBCore.Functions.SpawnVehicle(model, cb, pos, networked)
@@ -23,6 +45,10 @@ Framework = {
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
     Framework.PlayerLoaded = true
+end)
+
+RegisterNetEvent('QBCore:Client:OnJobUpdate', function(newJob)
+    TriggerEvent('peuren_lib:PlayerJobUpdated', newJob)
 end)
 
 return Framework
