@@ -31,21 +31,21 @@ Framework = {
             jobs = { jobs }
         end
 
-        for _, job in pairs(jobs) do 
-            for id, _ in pairs(players) do
-                local player = QBCore.Functions.GetPlayer(id)
-                if not player then goto continue end
+        for _, id in pairs(players) do
+            local player = QBCore.Functions.GetPlayer(id)
+            if not player then goto continue end
 
+            for _, job in pairs(jobs) do
                 if player.PlayerData.job.name == job then
                     if player.PlayerData.job.onduty then
                         count += 1
                     end
                 end
-
-                :: continue ::
             end
-        end 
-        
+
+            :: continue ::
+        end
+
         return count
     end,
     GetPlayers = function()
