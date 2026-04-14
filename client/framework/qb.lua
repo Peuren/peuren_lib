@@ -1,7 +1,7 @@
 QBCore = exports[Config.FrameworkResource]:GetCoreObject()
 
 Framework = {
-    PlayerLoaded = QBCore.Functions.GetPlayerData() ~= nil,
+    PlayerLoaded = QBCore.Functions.GetPlayerData() ~= nil and next(QBCore.Functions.GetPlayerData()) ~= nil,
     Callbacks = {
         Trigger = function(name, ...)
             local p = promise:new()
@@ -39,6 +39,19 @@ Framework = {
 
     SpawnVehicle = function(model, pos, cb, networked)
         QBCore.Functions.SpawnVehicle(model, cb, pos, networked)
+    end,
+
+    GetIdentifier = function()
+        return QBCore.Functions.GetPlayerData().citizenid
+    end,
+
+    GetPlayerGender = function()
+        local PlayerData = QBCore.Functions.GetPlayerData()
+        if not PlayerData then return end
+        if PlayerData.charinfo.gender == 1 then
+            return "female"
+        end
+        return "male"
     end
 }
 

@@ -49,7 +49,6 @@ Poly = {
         if not Poly.ResourceZones[invokingResource] then Poly.ResourceZones[invokingResource] = {} end
         Poly.ResourceZones[invokingResource][id] = id
 
-
         return id
     end,
 

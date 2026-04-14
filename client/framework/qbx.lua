@@ -1,5 +1,5 @@
 Framework = {
-    PlayerLoaded = exports.qbx_core:GetPlayerData() ~= nil,
+    PlayerLoaded = exports.qbx_core:GetPlayerData() ~= nil and next(exports.qbx_core:GetPlayerData()) ~= nil,
     Callbacks = {
         Trigger = function(name, ...)
             return lib.callback.await(name, false, ...)
@@ -34,10 +34,24 @@ Framework = {
     SpawnVehicle = function(model, pos, cb, networked)
         local result = lib.callback.await('peuren_lib:SpawnVehicle', false, model, pos)
         cb(NetToVeh(result))
+    end,
+
+    GetIdentifier = function()
+        return exports.qbx_core:GetPlayerData().citizenid
+    end,
+
+    GetPlayerGender = function()
+        local PlayerData = exports.qbx_core:GetPlayerData()
+        if not PlayerData then return end
+        if PlayerData.charinfo.gender == 1 then
+            return "female"
+        end
+        return "male"
     end
 }
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    print("HELOOOOO")
     TriggerEvent('peuren_lib:PlayerLoaded')
     Framework.PlayerLoaded = true
 end)

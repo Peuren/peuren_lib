@@ -29,31 +29,49 @@ Framework = {
     },
     Job = {
         Get = function()
-            return ESX.PlayerData.job.name
+            return ESX.PlayerData.job?.name
         end,
         GetLabel = function()
-            return ESX.PlayerData.job.label
+            return ESX.PlayerData.job?.label
         end,
         GetGrade = function()
-            return ESX.PlayerData.job.grade.level
+            return ESX.PlayerData.job?.grade?.level
         end,
         GetGradeLabel = function()
-            return ESX.PlayerData.job.grade.name
+            return ESX.PlayerData.job?.grade?.name
         end
     },
 
     SpawnVehicle = function(model, pos, cb, networked)
         ESX.Game.SpawnVehicle(model, pos, heading, cb, networked)
+    end,
+
+    GetIdentifier = function()
+        return ESX.GetPlayerData().identifier
+    end,
+
+    GetPlayerGender = function()
+        if not ESX.PlayerData then return end
+        if ESX.PlayerData.sex  == 1 then
+            return "female"
+        end
+        return "male"
     end
 }
 
 AddEventHandler('esx:onPlayerSpawn', function()
     TriggerEvent('peuren_lib:PlayerLoaded')
     Framework.PlayerLoaded = true
+    ESX.PlayerData = ESX.GetPlayerData()
+end)
+
+RegisterNetEvent('esx:playerLoaded', function(playerData, isNew, skin)
+    Framework.PlayerLoaded = true
 end)
 
 RegisterNetEvent('esx:setJob', function(newJob)
     TriggerEvent('peuren_lib:PlayerJobUpdated', newJob)
+    ESX.PlayerData = ESX.GetPlayerData()
 end)
 
 return Framework

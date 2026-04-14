@@ -81,6 +81,10 @@ Framework = {
             Debug('Vehicle spawned with ID: ' .. tostring(vehicle))
             if cb then cb(vehicle) end
         end, pos, networked)
+    end, 
+
+    GetIdentifier = function()
+        return TMC.Functions.GetPlayerData().citizenid
     end
 }
 

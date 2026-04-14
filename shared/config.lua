@@ -212,6 +212,7 @@ Config.Clothing = nil
 Config.ClothingResource = nil -- The clothing system resource folder name
 --SUPPORTED CLOTHING SCRIPT NAMES TO PUT IN: Config.Clothing = ""
 --[[
+    peuren_appearance
     tmc
     crm-appearance
     codem-appearance
@@ -307,8 +308,8 @@ local function AutoDetectConfig()
     local categories = {
         { key = "Framework", resourceKey = "FrameworkResource", options = {
             AutoOption("esx", { "es_extended", "esx" }),
-            AutoOption("qb", { "qb-core" }),
             AutoOption("qbx", { "qbx_core" }),
+            AutoOption("qb", { "qb-core" }),
             AutoOption("ox", { "ox_core" }),
             AutoOption("tmc", { "core" })
         }},
@@ -452,6 +453,7 @@ local function AutoDetectConfig()
             AutoOption("tmc")
         }},
         { key = "Clothing", resourceKey = "ClothingResource", options = {
+            AutoOption("peuren_appearance"),
             AutoOption("qb-clothing"),
             AutoOption("codem-appearance"),
             AutoOption("crm-appearance"),
@@ -511,3 +513,7 @@ local function AutoDetectConfig()
 end
 
 AutoDetectConfig()
+
+exports("GetConfig", function()
+    return Config
+end)
