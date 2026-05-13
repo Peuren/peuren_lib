@@ -62,7 +62,7 @@ Framework = {
     end,
     Money = {
         Give = function(player, amount, account)
-            if account ~= "cash" and account ~= "bank" and account ~= "black_money" then
+            if account ~= "money" and account ~= "cash" and account ~= "bank" and account ~= "black_money" then
                 return error("Wrong money account: cash, bank, or black_money required.", 3)
             end
 
@@ -77,7 +77,7 @@ Framework = {
             return xPlayer.addAccountMoney(account, math.ceil(amount))
         end,
         Get = function(player, account)
-            if account ~= "cash" and account ~= "bank" and account ~= "black_money" then
+            if account ~= "money" and account ~= "cash" and account ~= "bank" and account ~= "black_money" then
                 return error("Wrong money account: cash, bank, or black_money required.", 3)
             end
             
@@ -88,7 +88,7 @@ Framework = {
             return xPlayer.getAccount(account).money
         end,
         Remove = function(player, amount, account)
-            if account ~= "cash" and account ~= "bank" and account ~= "black_money" then
+            if account ~= "money" and account ~= "cash" and account ~= "bank" and account ~= "black_money" then
                 return error("Wrong money account: cash, bank, black_money required.", 3)
             end
 
